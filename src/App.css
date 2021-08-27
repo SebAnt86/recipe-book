@@ -9,3 +9,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+
+.textarea {
+  height: 100px !important;
+}

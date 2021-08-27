@@ -8,9 +8,10 @@ import Col from "react-bootstrap/Col";
 import { BsClockHistory } from "react-icons/bs";
 import { BsClock } from "react-icons/bs";
 import { FaUtensils } from "react-icons/fa";
+import { GiCampCookingPot } from "react-icons/gi"
 
 function AddRecipe() {
-    const [validated, setValidated] = useState(false);
+  const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -23,7 +24,13 @@ function AddRecipe() {
   };
 
   return (
-    <Form className="mx-5" noValidate validated={validated} onSubmit={handleSubmit}>
+    <Form
+      className="mx-5"
+      noValidate
+      validated={validated}
+      onSubmit={handleSubmit}
+    >
+      {/* recipe name */}
       <Row className="g-3 mb-3">
         <Col lg={6}>
           <Form.Floating className="mb-3">
@@ -44,41 +51,30 @@ function AddRecipe() {
           </Form.Floating>
         </Col>
 
-        <Col md>
+        {/* preparation time */}
+        <Col>
           <Form.Floating className="mb-3">
-            <Form.Control
-              id="prepTime"
-              type="number"
-              className="pb-1"
-            />
+            <Form.Control id="prepTime" type="number" className="pb-1" />
             <label htmlFor="prepTime" className="pt-2">
               <BsClockHistory className="pe-1 pb-1" />
               Preparation Time
             </label>
-            <Form.Text className="text-muted">
-              Please add the time in minutes.
-            </Form.Text>
           </Form.Floating>
         </Col>
 
-        <Col md>
+        {/* cooking time */}
+        <Col>
           <Form.Floating className="mb-3">
-            <Form.Control
-              id="cookingTime"
-              type="number"
-              className="pb-1"
-            />
+            <Form.Control id="cookingTime" type="number" className="pb-1" />
             <label htmlFor="cookingTime" className="pt-2">
               <BsClock className="pe-1 pb-1" />
               Cooking Time
             </label>
-            <Form.Text className="text-muted">
-              Please add the time in minutes.
-            </Form.Text>
           </Form.Floating>
         </Col>
 
-        <Col md>
+        {/* serves people */}
+        <Col>
           <Form.Floating className="mb-3">
             <Form.Control
               id="servingPpl"
@@ -86,13 +82,30 @@ function AddRecipe() {
               className="pb-1"
               required
             />
-            <label htmlFor="servingPpl"className="pt-2">
+            <label htmlFor="servingPpl" className="pt-2">
               <FaUtensils className="pe-1 pb-1" />
               Serves
             </label>
             <Form.Control.Feedback type="invalid">
               Please add the serves number.
             </Form.Control.Feedback>
+          </Form.Floating>
+        </Col>
+      </Row>
+
+      {/* preparation steps */}
+      <Row className="g-3 mb-3">
+        <Col>
+          <Form.Floating className="mb-3">
+            <Form.Control
+              id="preparation"
+              as="textarea"
+              className="pb-1 textarea"
+            />
+            <label htmlFor="preparation" className="pt-2">
+              <GiCampCookingPot className="pe-1 pb-1" />
+              Preparation
+            </label>
           </Form.Floating>
         </Col>
       </Row>
