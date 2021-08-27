@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Ingredients from "./Ingredients";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -52,7 +53,7 @@ function AddRecipe() {
         </Col>
 
         {/* preparation time */}
-        <Col>
+        <Col sm>
           <Form.Floating className="mb-3">
             <Form.Control id="prepTime" type="number" className="pb-1" />
             <label htmlFor="prepTime" className="pt-2">
@@ -63,7 +64,7 @@ function AddRecipe() {
         </Col>
 
         {/* cooking time */}
-        <Col>
+        <Col sm>
           <Form.Floating className="mb-3">
             <Form.Control id="cookingTime" type="number" className="pb-1" />
             <label htmlFor="cookingTime" className="pt-2">
@@ -74,7 +75,7 @@ function AddRecipe() {
         </Col>
 
         {/* serves people */}
-        <Col>
+        <Col sm>
           <Form.Floating className="mb-3">
             <Form.Control
               id="servingPpl"
@@ -90,6 +91,13 @@ function AddRecipe() {
               Please add the serves number.
             </Form.Control.Feedback>
           </Form.Floating>
+        </Col>
+      </Row>
+
+      {/* ingredients */}
+      <Row className="g-3 mb-3">
+        <Col>
+          <Ingredients />
         </Col>
       </Row>
 
