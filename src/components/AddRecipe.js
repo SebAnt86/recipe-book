@@ -88,18 +88,16 @@ function AddRecipe() {
               Serves
             </label>
             <Form.Control.Feedback type="invalid">
-              Please add the serves number.
+              Please add the serveing number.
             </Form.Control.Feedback>
           </Form.Floating>
         </Col>
       </Row>
 
       {/* ingredients */}
-      <Row className="g-3 mb-3">
-        <Col>
+      
           <Ingredients />
-        </Col>
-      </Row>
+    
 
       {/* preparation steps */}
       <Row className="g-3 mb-3">
