@@ -8,7 +8,7 @@ import { useState } from "react";
 
 function App() {
   const [showAddRecipe, setShowAddRecipe] = useState(false);
-  const [ingrediants, setIngrediants] = useState([
+  const [ingredients, setIngredients] = useState([
     {
       id: 1,
       qty: 100,
@@ -36,18 +36,30 @@ function App() {
   ]);
 
   // Delete ingredient
-
-const deleteIngrediant = (id) => {
+  const deleteIngredient = (id) => {
     // console.log("delete", id);
-    setIngrediants(ingrediants.filter((ingrediant) => ingrediant.id !== id))
-}
+    setIngredients(ingredients.filter((ingredient) => ingredient.id !== id));
+  };
 
+  // Add ingredient
+  const addIngredient = (ingr) => {
+    const id = Math.floor(Math.random() * 1000) + 1;
+    // console.log(id);
+    const newIngredient = {id, ...ingr};
+    setIngredients([...ingredients, newIngredient])
+  }
 
   return (
     <div>
       <Header />
       <ShowAddForm onAdd={() => setShowAddRecipe(!showAddRecipe)} />
-      {showAddRecipe && <AddRecipe ingrediants={ingrediants} deleteIngrediant={deleteIngrediant}/>}
+      {showAddRecipe && (
+        <AddRecipe
+          ingredients={ingredients}
+          deleteIngredient={deleteIngredient}
+          addIngredient ={addIngredient}
+        />
+      )}
     </div>
   );
 }

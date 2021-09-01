@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Ingrediants from "./Ingrediants";
+import Ingredients from "./Ingredients";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -11,16 +11,26 @@ import { BsClock } from "react-icons/bs";
 import { FaUtensils } from "react-icons/fa";
 import { GiCampCookingPot } from "react-icons/gi";
 
-function AddRecipe({ ingrediants, deleteIngrediant }) {
+function AddRecipe({ ingredients, deleteIngredient , addIngredient }) {
+  // Bootstrap validation state
   const [validated, setValidated] = useState(false);
 
+  // Recipe form states
+  const [recipeName, setRecipeName] = useState();
+  const [prepTime, setPrepTime] = useState();
+  const [cookingTime, setCookingTime] = useState();
+  const [servingPpl, setServingPpl] = useState();
+  const [preparation, setPreparation] = useState();
+
+
+
   const handleSubmit = (event) => {
+    // Bootstrap validation
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
-
     setValidated(true);
   };
 
@@ -33,7 +43,7 @@ function AddRecipe({ ingrediants, deleteIngrediant }) {
     >
       {/* recipe name */}
       <Row className="g-3 mb-3">
-        <Col lg={6}>
+        <Col xl={6}>
           <Form.Floating className="mb-3">
             <Form.Control
               id="recipeName"
@@ -41,6 +51,8 @@ function AddRecipe({ ingrediants, deleteIngrediant }) {
               //placeholder="lasagna"
               className="pb-1"
               required
+              value={recipeName}
+              onChange={(e) => setRecipeName(e.target.value)}
             />
             <label htmlFor="recipeName" className="pt-2">
               Recipe Name
@@ -53,9 +65,15 @@ function AddRecipe({ ingrediants, deleteIngrediant }) {
         </Col>
 
         {/* preparation time */}
-        <Col sm>
+        <Col md>
           <Form.Floating className="mb-3">
-            <Form.Control id="prepTime" type="text" className="pb-1" />
+            <Form.Control
+              id="prepTime"
+              type="text"
+              className="pb-1"
+              value={prepTime}
+              onChange={(e) => setPrepTime(e.target.value)}
+            />
             <label htmlFor="prepTime" className="pt-2">
               <BsClockHistory className="pe-1 pb-1" />
               Preparation Time
@@ -64,9 +82,15 @@ function AddRecipe({ ingrediants, deleteIngrediant }) {
         </Col>
 
         {/* cooking time */}
-        <Col sm>
+        <Col md>
           <Form.Floating className="mb-3">
-            <Form.Control id="cookingTime" type="text" className="pb-1" />
+            <Form.Control
+              id="cookingTime"
+              type="text"
+              className="pb-1"
+              value={cookingTime}
+              onChange={(e) => setCookingTime(e.target.value)}
+            />
             <label htmlFor="cookingTime" className="pt-2">
               <BsClock className="pe-1 pb-1" />
               Cooking Time
@@ -75,13 +99,15 @@ function AddRecipe({ ingrediants, deleteIngrediant }) {
         </Col>
 
         {/* serves people */}
-        <Col sm>
+        <Col md>
           <Form.Floating className="mb-3">
             <Form.Control
               id="servingPpl"
               type="number"
               className="pb-1"
               required
+              value={servingPpl}
+              onChange={(e) => setServingPpl(e.target.value)}
             />
             <label htmlFor="servingPpl" className="pt-2">
               <FaUtensils className="pe-1 pb-1" />
@@ -94,8 +120,14 @@ function AddRecipe({ ingrediants, deleteIngrediant }) {
         </Col>
       </Row>
 
-      {/* ingrediants */}
-      <Ingrediants key={ingrediants.id} ingrediants={ingrediants} deleteIngrediant={deleteIngrediant}/>
+      {/* ingredients */}
+      <Ingredients
+        key={ingredients.id}
+        ingredients={ingredients}
+        deleteIngredient={deleteIngredient}
+        addIngredient={addIngredient}
+      />
+
 
       {/* preparation steps */}
       <Row className="g-3 mb-3">
@@ -105,6 +137,8 @@ function AddRecipe({ ingrediants, deleteIngrediant }) {
               id="preparation"
               as="textarea"
               className="pb-1 textarea"
+              value={preparation}
+              onChange={(e) => setPreparation(e.target.value)}
             />
             <label htmlFor="preparation" className="pt-2">
               <GiCampCookingPot className="pe-1 pb-1" />
