@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Ingredients from "./Ingredients";
+import Ingrediants from "./Ingrediants";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -11,7 +11,7 @@ import { BsClock } from "react-icons/bs";
 import { FaUtensils } from "react-icons/fa";
 import { GiCampCookingPot } from "react-icons/gi";
 
-function AddRecipe({ ingredients }) {
+function AddRecipe({ ingrediants, deleteIngrediant }) {
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
@@ -55,7 +55,7 @@ function AddRecipe({ ingredients }) {
         {/* preparation time */}
         <Col sm>
           <Form.Floating className="mb-3">
-            <Form.Control id="prepTime" type="number" className="pb-1" />
+            <Form.Control id="prepTime" type="text" className="pb-1" />
             <label htmlFor="prepTime" className="pt-2">
               <BsClockHistory className="pe-1 pb-1" />
               Preparation Time
@@ -66,7 +66,7 @@ function AddRecipe({ ingredients }) {
         {/* cooking time */}
         <Col sm>
           <Form.Floating className="mb-3">
-            <Form.Control id="cookingTime" type="number" className="pb-1" />
+            <Form.Control id="cookingTime" type="text" className="pb-1" />
             <label htmlFor="cookingTime" className="pt-2">
               <BsClock className="pe-1 pb-1" />
               Cooking Time
@@ -94,9 +94,8 @@ function AddRecipe({ ingredients }) {
         </Col>
       </Row>
 
-      {/* ingredients */}
-
-      <Ingredients ingredients={ingredients}/>
+      {/* ingrediants */}
+      <Ingrediants key={ingrediants.id} ingrediants={ingrediants} deleteIngrediant={deleteIngrediant}/>
 
       {/* preparation steps */}
       <Row className="g-3 mb-3">
