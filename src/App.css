@@ -8,8 +8,21 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }
 
 .textarea {
   height: 100px !important;
+}
+
+.ing-item {
+  list-style: none;
+  border: 1px solid #cacacb;
+  border-radius: 3px;
+  line-height: 2.5rem;
+  min-width: 15rem;
+}
+
+.close {
+  font-size: 0.75rem;
 }

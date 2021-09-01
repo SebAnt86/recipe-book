@@ -9,9 +9,9 @@ import Col from "react-bootstrap/Col";
 import { BsClockHistory } from "react-icons/bs";
 import { BsClock } from "react-icons/bs";
 import { FaUtensils } from "react-icons/fa";
-import { GiCampCookingPot } from "react-icons/gi"
+import { GiCampCookingPot } from "react-icons/gi";
 
-function AddRecipe() {
+function AddRecipe({ ingredients }) {
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
@@ -36,13 +36,13 @@ function AddRecipe() {
         <Col lg={6}>
           <Form.Floating className="mb-3">
             <Form.Control
-              id="prepTime"
+              id="recipeName"
               type="text"
               //placeholder="lasagna"
               className="pb-1"
               required
             />
-            <label htmlFor="prepTime" className="pt-2">
+            <label htmlFor="recipeName" className="pt-2">
               Recipe Name
             </label>
             {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
@@ -95,9 +95,8 @@ function AddRecipe() {
       </Row>
 
       {/* ingredients */}
-      
-          <Ingredients />
-    
+
+      <Ingredients ingredients={ingredients}/>
 
       {/* preparation steps */}
       <Row className="g-3 mb-3">
