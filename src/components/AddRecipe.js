@@ -11,18 +11,16 @@ import { BsClock } from "react-icons/bs";
 import { FaUtensils } from "react-icons/fa";
 import { GiCampCookingPot } from "react-icons/gi";
 
-function AddRecipe({ ingredients, deleteIngredient , addIngredient }) {
+function AddRecipe({ ingredients, deleteIngredient, addIngredient }) {
   // Bootstrap validation state
   const [validated, setValidated] = useState(false);
 
   // Recipe form states
-  const [recipeName, setRecipeName] = useState();
-  const [prepTime, setPrepTime] = useState();
-  const [cookingTime, setCookingTime] = useState();
-  const [servingPpl, setServingPpl] = useState();
-  const [preparation, setPreparation] = useState();
-
-
+  const [recipeName, setRecipeName] = useState("");
+  const [prepTime, setPrepTime] = useState("");
+  const [cookingTime, setCookingTime] = useState("");
+  const [servingPpl, setServingPpl] = useState("");
+  const [method, setMethod] = useState("");
 
   const handleSubmit = (event) => {
     // Bootstrap validation
@@ -64,7 +62,7 @@ function AddRecipe({ ingredients, deleteIngredient , addIngredient }) {
           </Form.Floating>
         </Col>
 
-        {/* preparation time */}
+        {/* method time */}
         <Col md>
           <Form.Floating className="mb-3">
             <Form.Control
@@ -76,7 +74,7 @@ function AddRecipe({ ingredients, deleteIngredient , addIngredient }) {
             />
             <label htmlFor="prepTime" className="pt-2">
               <BsClockHistory className="pe-1 pb-1" />
-              Preparation Time
+              method Time
             </label>
           </Form.Floating>
         </Col>
@@ -128,29 +126,29 @@ function AddRecipe({ ingredients, deleteIngredient , addIngredient }) {
         addIngredient={addIngredient}
       />
 
-
-      {/* preparation steps */}
+      {/* method steps */}
       <Row className="g-3 mb-3">
         <Col>
           <Form.Floating className="mb-3">
             <Form.Control
-              id="preparation"
+              id="method"
               as="textarea"
               className="pb-1 textarea"
-              value={preparation}
-              onChange={(e) => setPreparation(e.target.value)}
+              value={method}
+              onChange={(e) => setMethod(e.target.value)}
             />
-            <label htmlFor="preparation" className="pt-2">
+            <label htmlFor="method" className="pt-2">
               <GiCampCookingPot className="pe-1 pb-1" />
-              Preparation
+              method
             </label>
           </Form.Floating>
         </Col>
       </Row>
-
-      <Button variant="primary" type="submit">
-        Save Recipe
-      </Button>
+      <div className="text-center">
+        <Button variant="primary" type="submit" size="lg">
+          Save Recipe
+        </Button>
+      </div>
     </Form>
   );
 }

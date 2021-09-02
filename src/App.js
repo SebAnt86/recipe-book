@@ -60,7 +60,7 @@ function App() {
           ingName: "cheese",
         },
       ],
-      preparation: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
+      method: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
     },
     {
       id: 2,
@@ -85,7 +85,7 @@ function App() {
           ingName: "cheese",
         },
       ],
-      preparation: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
+      method: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
     },
     {
       id: 3,
@@ -110,7 +110,7 @@ function App() {
           ingName: "cheese",
         },
       ],
-      preparation: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
+      method: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
     },
   ]);
 
