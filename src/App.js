@@ -3,35 +3,114 @@ import "./App.css";
 import Header from "./components/Header";
 import AddRecipe from "./components/AddRecipe";
 import ShowAddForm from "./components/ShowAddForm";
+import Recipes from "./components/Recipes";
 
 import { useState } from "react";
 
 function App() {
   const [showAddRecipe, setShowAddRecipe] = useState(false);
   const [ingredients, setIngredients] = useState([
+    // {
+    //   id: 1,
+    //   qty: 100,
+    //   unit: "g",
+    //   ingName: "sugar",
+    // },
+    // {
+    //   id: 2,
+    //   qty: 6,
+    //   unit: "",
+    //   ingName: "eggs",
+    // },
+    // {
+    //   id: 3,
+    //   qty: 250,
+    //   unit: "g",
+    //   ingName: "mascarpone",
+    // },
+    // {
+    //   id: 4,
+    //   qty: 1,
+    //   unit: "cup",
+    //   ingName: "chocolate chips",
+    // },
+  ]);
+
+  const [recipes, setRecipes] = useState([
     {
       id: 1,
-      qty: 100,
-      unit: "g",
-      ingName: "sugar",
+      recipeName: "Lasagna",
+      prepTime: "20 mins",
+      cookingTime: "30 mins",
+      serves: 4,
+      ingredients: [
+        {
+          ingQty: 200,
+          unit: "ml",
+          ingName: "tomato",
+        },
+        {
+          ingQty: 200,
+          unit: "g",
+          ingName: "bechamel",
+        },
+        {
+          ingQty: 300,
+          unit: "g",
+          ingName: "cheese",
+        },
+      ],
+      preparation: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
     },
     {
       id: 2,
-      qty: 6,
-      unit: "",
-      ingName: "eggs",
+      recipeName: "Lasagna",
+      prepTime: "20 mins",
+      cookingTime: "30 mins",
+      serves: 4,
+      ingredients: [
+        {
+          ingQty: 200,
+          unit: "ml",
+          ingName: "tomato",
+        },
+        {
+          ingQty: 200,
+          unit: "g",
+          ingName: "bechamel",
+        },
+        {
+          ingQty: 300,
+          unit: "g",
+          ingName: "cheese",
+        },
+      ],
+      preparation: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
     },
     {
       id: 3,
-      qty: 250,
-      unit: "g",
-      ingName: "mascarpone",
-    },
-    {
-      id: 4,
-      qty: 1,
-      unit: "cup",
-      ingName: "chocolate chips",
+      recipeName: "Lasagna",
+      prepTime: "20 mins",
+      cookingTime: "30 mins",
+      serves: 4,
+      ingredients: [
+        {
+          ingQty: 200,
+          unit: "ml",
+          ingName: "tomato",
+        },
+        {
+          ingQty: 200,
+          unit: "g",
+          ingName: "bechamel",
+        },
+        {
+          ingQty: 300,
+          unit: "g",
+          ingName: "cheese",
+        },
+      ],
+      preparation: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
     },
   ]);
 
@@ -45,9 +124,9 @@ function App() {
   const addIngredient = (ingr) => {
     const id = Math.floor(Math.random() * 1000) + 1;
     // console.log(id);
-    const newIngredient = {id, ...ingr};
-    setIngredients([...ingredients, newIngredient])
-  }
+    const newIngredient = { id, ...ingr };
+    setIngredients([...ingredients, newIngredient]);
+  };
 
   return (
     <div>
@@ -57,9 +136,10 @@ function App() {
         <AddRecipe
           ingredients={ingredients}
           deleteIngredient={deleteIngredient}
-          addIngredient ={addIngredient}
+          addIngredient={addIngredient}
         />
       )}
+      <Recipes recipes={recipes}/>
     </div>
   );
 }

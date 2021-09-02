@@ -36,7 +36,7 @@ function AddRecipe({ ingredients, deleteIngredient , addIngredient }) {
 
   return (
     <Form
-      className="mx-5"
+      className="mx-5 mb-5"
       noValidate
       validated={validated}
       onSubmit={handleSubmit}
@@ -55,7 +55,7 @@ function AddRecipe({ ingredients, deleteIngredient , addIngredient }) {
               onChange={(e) => setRecipeName(e.target.value)}
             />
             <label htmlFor="recipeName" className="pt-2">
-              Recipe Name
+              Recipe Name *
             </label>
             {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
             <Form.Control.Feedback type="invalid">
@@ -111,7 +111,7 @@ function AddRecipe({ ingredients, deleteIngredient , addIngredient }) {
             />
             <label htmlFor="servingPpl" className="pt-2">
               <FaUtensils className="pe-1 pb-1" />
-              Serves
+              Serves *
             </label>
             <Form.Control.Feedback type="invalid">
               Please add the serveing number.
