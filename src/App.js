@@ -37,84 +37,93 @@ function App() {
   ]);
 
   const [recipes, setRecipes] = useState([
-    {
-      id: 1,
-      recipeName: "Lasagna",
-      prepTime: "20 mins",
-      cookingTime: "30 mins",
-      serves: 4,
-      ingredients: [
-        {
-          ingQty: 200,
-          unit: "ml",
-          ingName: "tomato",
-        },
-        {
-          ingQty: 200,
-          unit: "g",
-          ingName: "bechamel",
-        },
-        {
-          ingQty: 300,
-          unit: "g",
-          ingName: "cheese",
-        },
-      ],
-      method:
-        "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
-    },
-    {
-      id: 2,
-      recipeName: "Lasagna",
-      prepTime: "20 mins",
-      cookingTime: "30 mins",
-      serves: 4,
-      ingredients: [
-        {
-          ingQty: 200,
-          unit: "ml",
-          ingName: "tomato",
-        },
-        {
-          ingQty: 200,
-          unit: "g",
-          ingName: "bechamel",
-        },
-        {
-          ingQty: 300,
-          unit: "g",
-          ingName: "cheese",
-        },
-      ],
-      method:
-        "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
-    },
-    {
-      id: 3,
-      recipeName: "Lasagna",
-      prepTime: "20 mins",
-      cookingTime: "30 mins",
-      serves: 4,
-      ingredients: [
-        {
-          ingQty: 200,
-          unit: "ml",
-          ingName: "tomato",
-        },
-        {
-          ingQty: 200,
-          unit: "g",
-          ingName: "bechamel",
-        },
-        {
-          ingQty: 300,
-          unit: "g",
-          ingName: "cheese",
-        },
-      ],
-      method:
-        "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
-    },
+    // {
+    //   id: 1,
+    //   recipeName: "Lasagna",
+    //   prepTime: "20 mins",
+    //   cookingTime: "30 mins",
+    //   serves: 4,
+    //   ingredients: [
+    //     {
+    //       ingId: 4,
+    //       ingQty: 200,
+    //       unit: "ml",
+    //       ingName: "tomato",
+    //     },
+    //     {
+    //       ingId: 6,
+    //       ingQty: 200,
+    //       unit: "g",
+    //       ingName: "bechamel",
+    //     },
+    //     {
+    //       ingId: 6,
+    //       ingQty: 300,
+    //       unit: "g",
+    //       ingName: "cheese",
+    //     },
+    //   ],
+    //   method:
+    //     "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
+    // },
+    // {
+    //   id: 2,
+    //   recipeName: "Lasagna",
+    //   prepTime: "20 mins",
+    //   cookingTime: "30 mins",
+    //   serves: 4,
+    //   ingredients: [
+    //     {
+    //       ingId: 1,
+    //       ingQty: 200,
+    //       unit: "ml",
+    //       ingName: "tomato",
+    //     },
+    //     {
+    //       ingId: 2,
+    //       ingQty: 200,
+    //       unit: "g",
+    //       ingName: "bechamel",
+    //     },
+    //     {
+    //       ingId: 3,
+    //       ingQty: 300,
+    //       unit: "g",
+    //       ingName: "cheese",
+    //     },
+    //   ],
+    //   method:
+    //     "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
+    // },
+    // {
+    //   id: 3,
+    //   recipeName: "Lasagna",
+    //   prepTime: "20 mins",
+    //   cookingTime: "30 mins",
+    //   serves: 4,
+    //   ingredients: [
+    //     {
+    //       ingId: 7,
+    //       ingQty: 200,
+    //       unit: "ml",
+    //       ingName: "tomato",
+    //     },
+    //     {
+    //       ingId: 8,
+    //       ingQty: 200,
+    //       unit: "g",
+    //       ingName: "bechamel",
+    //     },
+    //     {
+    //       ingId: 9,
+    //       ingQty: 300,
+    //       unit: "g",
+    //       ingName: "cheese",
+    //     },
+    //   ],
+    //   method:
+    //     "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
+    // },
   ]);
 
   // Delete ingredient
@@ -133,8 +142,16 @@ function App() {
 
   // Delete recipe
   const deleteRecipe = (id) => {
-    console.log("delete", id);
+    //console.log("delete", id);
     setRecipes(recipes.filter((recipe) => recipe.id !== id));
+  };
+
+  // Add Recipe
+  const addRecipe = (recipe) => {
+    const id = Math.floor(Math.random() * 1000) + 1;
+    // console.log(id);
+    const newRecipe = { id, ...recipe };
+    setRecipes([...recipes, newRecipe]);
   };
 
   return (
@@ -146,6 +163,7 @@ function App() {
           ingredients={ingredients}
           deleteIngredient={deleteIngredient}
           addIngredient={addIngredient}
+          addRecipe={addRecipe}
         />
       )}
       <Recipes recipes={recipes} deleteRecipe={deleteRecipe} key={recipes.id} />

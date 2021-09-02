@@ -11,7 +11,12 @@ import { BsClock } from "react-icons/bs";
 import { FaUtensils } from "react-icons/fa";
 import { GiCampCookingPot } from "react-icons/gi";
 
-function AddRecipe({ ingredients, deleteIngredient, addIngredient }) {
+function AddRecipe({
+  ingredients,
+  deleteIngredient,
+  addIngredient,
+  addRecipe,
+}) {
   // Bootstrap validation state
   const [validated, setValidated] = useState(false);
 
@@ -21,6 +26,7 @@ function AddRecipe({ ingredients, deleteIngredient, addIngredient }) {
   const [cookingTime, setCookingTime] = useState("");
   const [servingPpl, setServingPpl] = useState("");
   const [method, setMethod] = useState("");
+  const [ingrList, setIngrList] = useState([]);
 
   const handleSubmit = (event) => {
     // Bootstrap validation
@@ -32,12 +38,38 @@ function AddRecipe({ ingredients, deleteIngredient, addIngredient }) {
     setValidated(true);
   };
 
+  // fanction to add and display the new recipe
+  const onAdd = (e) => {
+    e.preventDefault();
+
+    if(!recipeName || !servingPpl){
+        alert("missing recipe name or serves");
+    }else{
+        addRecipe({
+            recipeName,
+            prepTime,
+            cookingTime,
+            serves: servingPpl,
+            // ingrList,
+            method,
+          });
+      
+          //reset form fields
+          setRecipeName("");
+          setPrepTime("");
+          setCookingTime("");
+          setServingPpl("");
+          setMethod("");
+    }
+    
+  };
+
   return (
     <Form
       className="mx-5 mb-5"
       noValidate
       validated={validated}
-      onSubmit={handleSubmit}
+      onSubmit={onAdd}
     >
       {/* recipe name */}
       <Row className="g-3 mb-3">
@@ -124,6 +156,8 @@ function AddRecipe({ ingredients, deleteIngredient, addIngredient }) {
         ingredients={ingredients}
         deleteIngredient={deleteIngredient}
         addIngredient={addIngredient}
+        setIngrList={setIngrList}
+        ingrList={ingrList}
       />
 
       {/* method steps */}
@@ -146,7 +180,7 @@ function AddRecipe({ ingredients, deleteIngredient, addIngredient }) {
       </Row>
       <div className="text-center">
         <Button variant="primary" type="submit" size="lg">
-          Save Recipe
+           Save Recipe
         </Button>
       </div>
     </Form>
