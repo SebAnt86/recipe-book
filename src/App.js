@@ -60,7 +60,8 @@ function App() {
           ingName: "cheese",
         },
       ],
-      method: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
+      method:
+        "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
     },
     {
       id: 2,
@@ -85,7 +86,8 @@ function App() {
           ingName: "cheese",
         },
       ],
-      method: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
+      method:
+        "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
     },
     {
       id: 3,
@@ -110,7 +112,8 @@ function App() {
           ingName: "cheese",
         },
       ],
-      method: "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray."
+      method:
+        "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
     },
   ]);
 
@@ -128,6 +131,12 @@ function App() {
     setIngredients([...ingredients, newIngredient]);
   };
 
+  // Delete recipe
+  const deleteRecipe = (id) => {
+    console.log("delete", id);
+    setRecipes(recipes.filter((recipe) => recipe.id !== id));
+  };
+
   return (
     <div>
       <Header />
@@ -139,7 +148,7 @@ function App() {
           addIngredient={addIngredient}
         />
       )}
-      <Recipes recipes={recipes}/>
+      <Recipes recipes={recipes} deleteRecipe={deleteRecipe} key={recipes.id} />
     </div>
   );
 }

@@ -74,7 +74,7 @@ function AddRecipe({ ingredients, deleteIngredient, addIngredient }) {
             />
             <label htmlFor="prepTime" className="pt-2">
               <BsClockHistory className="pe-1 pb-1" />
-              method Time
+              Preparation Time
             </label>
           </Form.Floating>
         </Col>
@@ -139,7 +139,7 @@ function AddRecipe({ ingredients, deleteIngredient, addIngredient }) {
             />
             <label htmlFor="method" className="pt-2">
               <GiCampCookingPot className="pe-1 pb-1" />
-              method
+              Method
             </label>
           </Form.Floating>
         </Col>

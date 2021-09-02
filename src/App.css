@@ -23,6 +23,14 @@ body {
   min-width: 15rem;
 }
 
-.close {
+.btn-close {
   font-size: 0.75rem;
 }
+
+.btn-delete {
+  width: 3.5rem;
+  font-size: 1.8rem;
+  color: #f70808;
+  cursor: pointer;
+}
+
