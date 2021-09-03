@@ -9,32 +9,7 @@ import { useState } from "react";
 
 function App() {
   const [showAddRecipe, setShowAddRecipe] = useState(false);
-  const [ingredients, setIngredients] = useState([
-    // {
-    //   id: 1,
-    //   qty: 100,
-    //   unit: "g",
-    //   ingName: "sugar",
-    // },
-    // {
-    //   id: 2,
-    //   qty: 6,
-    //   unit: "",
-    //   ingName: "eggs",
-    // },
-    // {
-    //   id: 3,
-    //   qty: 250,
-    //   unit: "g",
-    //   ingName: "mascarpone",
-    // },
-    // {
-    //   id: 4,
-    //   qty: 1,
-    //   unit: "cup",
-    //   ingName: "chocolate chips",
-    // },
-  ]);
+  
 
   const [recipes, setRecipes] = useState([
     // {
@@ -126,19 +101,6 @@ function App() {
     // },
   ]);
 
-  // Delete ingredient
-  const deleteIngredient = (id) => {
-    // console.log("delete", id);
-    setIngredients(ingredients.filter((ingredient) => ingredient.id !== id));
-  };
-
-  // Add ingredient
-  const addIngredient = (ingr) => {
-    const id = Math.floor(Math.random() * 1000) + 1;
-    // console.log(id);
-    const newIngredient = { id, ...ingr };
-    setIngredients([...ingredients, newIngredient]);
-  };
 
   // Delete recipe
   const deleteRecipe = (id) => {
@@ -160,9 +122,9 @@ function App() {
       <ShowAddForm onAdd={() => setShowAddRecipe(!showAddRecipe)} />
       {showAddRecipe && (
         <AddRecipe
-          ingredients={ingredients}
-          deleteIngredient={deleteIngredient}
-          addIngredient={addIngredient}
+          // ingredients={ingredients}
+          // deleteIngredient={deleteIngredient}
+          // addIngredient={addIngredient}
           addRecipe={addRecipe}
         />
       )}

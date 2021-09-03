@@ -7,15 +7,15 @@ import Col from "react-bootstrap/Col";
 import CloseButton from "react-bootstrap/CloseButton";
 
 function Ingredients({
-  ingredients,
+  // ingredients,
   deleteIngredient,
   addIngredient,
-  setIngrList,
   ingrList,
 }) {
-  const [qty, setQty] = useState();
+  const [qty, setQty] = useState("");
   const [unit, setUnit] = useState("");
   const [ingName, setIngName] = useState("");
+ 
 
   //validation states warning messages
   const [qtyValidated, setQtyValidated] = useState(false);
@@ -29,8 +29,7 @@ function Ingredients({
       setQtyValidated(true);
       setIngNameValidated(true);
     } else {
-      addIngredient({ qty, unit, ingName });
-      setIngrList({ qty, unit, ingName });
+       addIngredient( qty, unit, ingName );
 
       //reset the ingredients values
       setQty("");
@@ -117,7 +116,6 @@ function Ingredients({
         variant="primary"
         size="sm"
         className="mb-3"
-        type="submit"
         onClick={onAdd}
       >
         Add Ingredient
@@ -133,7 +131,7 @@ function Ingredients({
               </div>
               <CloseButton
                 className="btn-close ms-2 align-self-start align-self-md-center mt-1"
-                onClick={() => deleteIngredient(ingr.id)}
+                onClick={() => deleteIngredient(ingr.ingId)}
               />
             </li>
           ))}

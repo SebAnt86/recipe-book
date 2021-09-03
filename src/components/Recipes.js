@@ -2,10 +2,8 @@ import Accordion from "react-bootstrap/Accordion";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 
 import { ImBin } from "react-icons/im";
-
 
 function Recipes({ recipes, deleteRecipe }) {
   return (
@@ -39,26 +37,32 @@ function Recipes({ recipes, deleteRecipe }) {
                       <h6>Number of servings</h6>
                       <div>+ 4 -</div>
                     </Container>
-                    {/* {recipe.ingredients.map((ingr) => (
-                      <Row>
-                        <Col>
-                          <span>{ingr.ingQty}</span>
-                          <span className="me-2">{ingr.unit}</span>
+                    {recipe.ingredients.length > 0 ? (
+                      recipe.ingredients.map((ingr) => (
+                        <Row>
+                          <Col>
+                            <span>{ingr.qty}</span>
+                            <span className="me-2">{ingr.unit}</span>
 
-                          <span className="mx-2">{ingr.ingName}</span>
-                        </Col>
-                      </Row>
-                    ))} */}
+                            <span className="mx-2">{ingr.ingName}</span>
+                          </Col>
+                        </Row>
+                      ))
+                    ) : (
+                      <p className="mb-5 disabled">No ingredients added.</p>
+                    )}
                   </Col>
                   <Col md={6} className="px-4 mb-3">
-                  <h4>Method</h4>
+                    <h4>Method</h4>
                     <Container className="ps-0 mt-4">{recipe.method}</Container>
                   </Col>
                 </Row>
                 <div className="text-end mt-3">
-                    {/* <Button variant="outline-danger"  className="mb-1 "> */}
-                        <ImBin className="btn-delete px-2 py-1" title="Delete recipe" onClick={() => deleteRecipe(recipe.id)}/>
-                    {/* </Button> */}
+                  <ImBin
+                    className="btn-delete px-2 py-1"
+                    title="Delete recipe"
+                    onClick={() => deleteRecipe(recipe.id)}
+                  />
                 </div>
               </Accordion.Body>
             </Accordion.Item>

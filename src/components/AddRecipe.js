@@ -11,15 +11,11 @@ import { BsClock } from "react-icons/bs";
 import { FaUtensils } from "react-icons/fa";
 import { GiCampCookingPot } from "react-icons/gi";
 
-function AddRecipe({
-  ingredients,
-  deleteIngredient,
-  addIngredient,
-  addRecipe,
-}) {
-  // validation RecipeName and Serves states
+function AddRecipe({ addRecipe }) {
+  // validation states
   const [recipeNameValid, setRecipeNameValid] = useState(false);
   const [servesValid, setServesValid] = useState(false);
+  const [ingredientsValid, setIngredientsValid] = useState(false);
 
   // Recipe form states
   const [recipeName, setRecipeName] = useState("");
@@ -27,23 +23,43 @@ function AddRecipe({
   const [cookingTime, setCookingTime] = useState("");
   const [servingPpl, setServingPpl] = useState("");
   const [method, setMethod] = useState("");
-  const [ingrList, setIngrList] = useState([]);
+
+  const [ingrList, setIngrList] = useState([
+    // {
+    //         ingId: 4,
+    //         qty: 200,
+    //         unit: "ml",
+    //         ingName: "tomato",
+    //       },
+    //       {
+    //         ingId: 8,
+    //         qty: 200,
+    //         unit: "g",
+    //         ingName: "bechamel",
+    //       },
+    //       {
+    //         ingId: 6,
+    //         qty: 300,
+    //         unit: "g",
+    //         ingName: "cheese",
+    //       },
+  ]);
 
   // fanction to add and display the new recipe
   const onAdd = (e) => {
     e.preventDefault();
 
-    if (!recipeName || !servingPpl) {
-      // alert("missing recipe name or serves");
+    if (!recipeName || !servingPpl || (ingrList.length <= 0)) {
       setServesValid(true);
       setRecipeNameValid(true);
+      setIngredientsValid(true);
     } else {
       addRecipe({
         recipeName,
         prepTime,
         cookingTime,
         serves: servingPpl,
-        // ingrList,
+        ingredients: ingrList,
         method,
       });
 
@@ -55,7 +71,22 @@ function AddRecipe({
       setMethod("");
       setServesValid(false);
       setRecipeNameValid(false);
+      setIngredientsValid(false);
     }
+  };
+
+  // Delete ingredient
+  const deleteIngredient = (id) => {
+    // console.log("delete", id);
+    setIngrList(ingrList.filter((ingredient) => ingredient.ingId !== id));
+  };
+
+  // Add ingredient
+  const addIngredient = (qty, unit, ingName) => {
+    const ingId = Math.floor(Math.random() * 1000) + 1;
+    // console.log(id);
+    const newIngredient = { ingId, qty, unit, ingName };
+    setIngrList([...ingrList, newIngredient]);
   };
 
   return (
@@ -143,12 +174,17 @@ function AddRecipe({
       </Row>
 
       {/* ingredients */}
+      {ingredientsValid && (
+        <div className="text-center">
+          <Form.Label className="m-0 text-danger">
+            Please add a ingredients.
+          </Form.Label>
+        </div>
+      )}
       <Ingredients
-        key={ingredients.id}
-        ingredients={ingredients}
+        key={ingrList.ingId}
         deleteIngredient={deleteIngredient}
         addIngredient={addIngredient}
-        setIngrList={setIngrList}
         ingrList={ingrList}
       />
 
