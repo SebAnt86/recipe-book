@@ -143,10 +143,13 @@ function AddRecipe({
               <FaUtensils className="pe-1 pb-1" />
               Serves *
             </label>
-            <Form.Control.Feedback type="invalid">
+            {/* <Form.Control.Feedback type="invalid">
               Please add the serveing number.
-            </Form.Control.Feedback>
+            </Form.Control.Feedback> */}
           </Form.Floating>
+          <Form.Label className="m-0 text-danger">
+          Please add the serveing number.
+            </Form.Label>
         </Col>
       </Row>
 
