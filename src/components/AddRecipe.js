@@ -17,8 +17,9 @@ function AddRecipe({
   addIngredient,
   addRecipe,
 }) {
-  // Bootstrap validation state
-  const [validated, setValidated] = useState(false);
+  // validation RecipeName and Serves states
+  const [recipeNameValid, setRecipeNameValid] = useState(false);
+  const [servesValid, setServesValid] = useState(false);
 
   // Recipe form states
   const [recipeName, setRecipeName] = useState("");
@@ -28,53 +29,41 @@ function AddRecipe({
   const [method, setMethod] = useState("");
   const [ingrList, setIngrList] = useState([]);
 
-  const handleSubmit = (event) => {
-    // Bootstrap validation
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    setValidated(true);
-  };
-
   // fanction to add and display the new recipe
   const onAdd = (e) => {
     e.preventDefault();
 
-    if(!recipeName || !servingPpl){
-        alert("missing recipe name or serves");
-    }else{
-        addRecipe({
-            recipeName,
-            prepTime,
-            cookingTime,
-            serves: servingPpl,
-            // ingrList,
-            method,
-          });
-      
-          //reset form fields
-          setRecipeName("");
-          setPrepTime("");
-          setCookingTime("");
-          setServingPpl("");
-          setMethod("");
+    if (!recipeName || !servingPpl) {
+      // alert("missing recipe name or serves");
+      setServesValid(true);
+      setRecipeNameValid(true);
+    } else {
+      addRecipe({
+        recipeName,
+        prepTime,
+        cookingTime,
+        serves: servingPpl,
+        // ingrList,
+        method,
+      });
+
+      //reset form fields
+      setRecipeName("");
+      setPrepTime("");
+      setCookingTime("");
+      setServingPpl("");
+      setMethod("");
+      setServesValid(false);
+      setRecipeNameValid(false);
     }
-    
   };
 
   return (
-    <Form
-      className="mx-5 mb-5"
-      noValidate
-      validated={validated}
-      onSubmit={onAdd}
-    >
+    <Form className="mx-5 mb-5" noValidate onSubmit={onAdd}>
       {/* recipe name */}
       <Row className="g-3 mb-3">
-        <Col xl={6}>
-          <Form.Floating className="mb-3">
+        <Col xl={6} className="mb-3">
+          <Form.Floating>
             <Form.Control
               id="recipeName"
               type="text"
@@ -87,16 +76,17 @@ function AddRecipe({
             <label htmlFor="recipeName" className="pt-2">
               Recipe Name *
             </label>
-            {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
-            <Form.Control.Feedback type="invalid">
-              Please choose a recipe name.
-            </Form.Control.Feedback>
           </Form.Floating>
+          {recipeNameValid && (
+            <Form.Label className="m-0 text-danger validation-text ps-2">
+              Please add a recipe name.
+            </Form.Label>
+          )}
         </Col>
 
         {/* method time */}
-        <Col md>
-          <Form.Floating className="mb-3">
+        <Col md className="mb-3">
+          <Form.Floating>
             <Form.Control
               id="prepTime"
               type="text"
@@ -112,8 +102,8 @@ function AddRecipe({
         </Col>
 
         {/* cooking time */}
-        <Col md>
-          <Form.Floating className="mb-3">
+        <Col md className="mb-3">
+          <Form.Floating>
             <Form.Control
               id="cookingTime"
               type="text"
@@ -129,8 +119,8 @@ function AddRecipe({
         </Col>
 
         {/* serves people */}
-        <Col md>
-          <Form.Floating className="mb-3">
+        <Col md className="mb-3">
+          <Form.Floating>
             <Form.Control
               id="servingPpl"
               type="number"
@@ -143,13 +133,12 @@ function AddRecipe({
               <FaUtensils className="pe-1 pb-1" />
               Serves *
             </label>
-            {/* <Form.Control.Feedback type="invalid">
-              Please add the serveing number.
-            </Form.Control.Feedback> */}
           </Form.Floating>
-          <Form.Label className="m-0 text-danger">
-          Please add the serveing number.
+          {servesValid && (
+            <Form.Label className="m-0 text-danger validation-text ps-2">
+              Please add the serving number.
             </Form.Label>
+          )}
         </Col>
       </Row>
 
@@ -183,7 +172,7 @@ function AddRecipe({
       </Row>
       <div className="text-center">
         <Button variant="primary" type="submit" size="lg">
-           Save Recipe
+          Save Recipe
         </Button>
       </div>
     </Form>

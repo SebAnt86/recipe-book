@@ -34,3 +34,6 @@ body {
   cursor: pointer;
 }
 
+.validation-text {
+    font-size: 0.75rem;
+}

@@ -62,7 +62,7 @@ function Ingredients({
             </Form.Control.Feedback>
           </Form.Floating>
           {qtyValidated && (
-            <Form.Label className="m-0 text-danger">
+            <Form.Label className="m-0 text-danger validation-text ps-2">
               Please add the ingredient quantity.
             </Form.Label>
           )}
@@ -106,7 +106,7 @@ function Ingredients({
             </Form.Control.Feedback>
           </Form.Floating>
           {ingNameValidated && (
-            <Form.Label className="m-0 text-danger">
+            <Form.Label className="m-0 text-danger validation-text ps-2">
               Please add the ingredient name.
             </Form.Label>
           )}
