@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.textarea {
+  height: 100px !important;
+}
+
+.ing-item {
+  list-style: none;
+  border: 1px solid #cacacb;
+  border-radius: 3px;
+  line-height: 2.5rem;
+  min-width: 15rem;
+}
+
+.btn-close {
+  font-size: 0.75rem;
+}
+
+.btn-delete {
+  width: 3.5rem;
+  font-size: 2rem;
+  color: #f70808;
+  cursor: pointer;
+}
+
