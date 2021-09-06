@@ -43,7 +43,6 @@ function Recipes({ recipes, deleteRecipe }) {
                           <Col>
                             <span>{ingr.qty}</span>
                             <span className="me-2">{ingr.unit}</span>
-
                             <span className="mx-2">{ingr.ingName}</span>
                           </Col>
                         </Row>

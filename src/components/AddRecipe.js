@@ -17,7 +17,8 @@ function AddRecipe({ addRecipe }) {
   const [servesValid, setServesValid] = useState(false);
   const [ingredientsValid, setIngredientsValid] = useState(false);
 
-
+  // state to clear ingredients list after submitting the form
+  const [clearIgredients, setClearIngredients] = useState(false);
 
   // Recipe form states
   const [recipeName, setRecipeName] = useState("");
@@ -74,6 +75,8 @@ function AddRecipe({ addRecipe }) {
       setServesValid(false);
       setRecipeNameValid(false);
       setIngredientsValid(false);
+      setClearIngredients(false);
+
     }
   };
 
@@ -198,6 +201,8 @@ function AddRecipe({ addRecipe }) {
         deleteIngredient={deleteIngredient}
         addIngredient={addIngredient}
         ingrList={ingrList}
+        clearIgredients={clearIgredients}
+        setClearIngredients={setClearIngredients}
       />
 
       {/* method steps */}
