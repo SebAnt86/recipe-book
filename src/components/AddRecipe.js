@@ -17,6 +17,8 @@ function AddRecipe({ addRecipe }) {
   const [servesValid, setServesValid] = useState(false);
   const [ingredientsValid, setIngredientsValid] = useState(false);
 
+
+
   // Recipe form states
   const [recipeName, setRecipeName] = useState("");
   const [prepTime, setPrepTime] = useState("");
@@ -108,6 +110,11 @@ function AddRecipe({ addRecipe }) {
               Recipe Name *
             </label>
           </Form.Floating>
+          <div>
+            <Form.Label className="m-0 text-secondary validation-text ps-2">
+              Required*
+            </Form.Label>
+          </div>
           {recipeNameValid && (
             <Form.Label className="m-0 text-danger validation-text ps-2">
               Please add a recipe name.
@@ -165,6 +172,11 @@ function AddRecipe({ addRecipe }) {
               Serves *
             </label>
           </Form.Floating>
+          <div>
+            <Form.Label className="m-0 text-secondary validation-text ps-2">
+              Required*
+            </Form.Label>
+          </div>
           {servesValid && (
             <Form.Label className="m-0 text-danger validation-text ps-2">
               Please add the serving number.
