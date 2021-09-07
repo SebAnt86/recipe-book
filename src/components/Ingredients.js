@@ -10,8 +10,6 @@ function Ingredients({
   deleteIngredient,
   addIngredient,
   ingrList,
-  clearIgredients,
-  setClearIngredients,
   servingPpl
 }) {
   const [qty, setQty] = useState("");
@@ -32,7 +30,6 @@ function Ingredients({
     } else {
       const ingPerServe = (qty / servingPpl);
       addIngredient(qty, unit, ingName, ingPerServe);
-      setClearIngredients(true);
 
       //reset the ingredients values
       setQty("");
@@ -121,7 +118,7 @@ function Ingredients({
         Add Ingredient
       </Button>
 
-      {clearIgredients ? (
+      {ingrList.length > 0 ? (
         <ul className="d-flex  flex-wrap ps-0">
           {ingrList.map((ingr) => (
             <li className="ing-item mb-3 d-flex justify-content-between align-items-center px-2 me-2">

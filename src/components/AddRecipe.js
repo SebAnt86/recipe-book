@@ -17,9 +17,6 @@ function AddRecipe({ addRecipe }) {
   const [servesValid, setServesValid] = useState(false);
   const [ingredientsValid, setIngredientsValid] = useState(false);
 
-  // state to clear ingredients list after submitting the form
-  const [clearIgredients, setClearIngredients] = useState(false);
-
   // Recipe form states
   const [recipeName, setRecipeName] = useState("");
   const [prepTime, setPrepTime] = useState("");
@@ -76,10 +73,10 @@ function AddRecipe({ addRecipe }) {
       setCookingTime("");
       setServingPpl("");
       setMethod("");
+      setIngrList([]);
       setServesValid(false);
       setRecipeNameValid(false);
       setIngredientsValid(false);
-      setClearIngredients(false);
 
     }
   };
@@ -172,7 +169,10 @@ function AddRecipe({ addRecipe }) {
               className="pb-1"
               required
               value={servingPpl}
-              onChange={(e) => setServingPpl(e.target.value)}
+              onChange={(e) => {
+                setServingPpl(e.target.value);
+                setServesOrigin(e.target.value);
+              }}
             />
             <label htmlFor="servingPpl" className="pt-2">
               <FaUtensils className="pe-1 pb-1" />
@@ -205,8 +205,6 @@ function AddRecipe({ addRecipe }) {
         deleteIngredient={deleteIngredient}
         addIngredient={addIngredient}
         ingrList={ingrList}
-        clearIgredients={clearIgredients}
-        setClearIngredients={setClearIngredients}
         servingPpl={servingPpl}
       />
 
