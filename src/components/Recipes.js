@@ -76,8 +76,7 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                           />
                         </div>
                       </Container>
-                      {recipe.ingredients.length > 0 ? (
-                        recipe.ingredients.map((ingr) => (
+                      {recipe.ingredients.map((ingr) => (
                           <Row>
                             <Col>
                               <span>{ingr.ingPerServe * recipe.serves}</span>
@@ -85,10 +84,7 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                               <span className="mx-2">{ingr.ingName}</span>
                             </Col>
                           </Row>
-                        ))
-                      ) : (
-                        <p className="mb-5 disabled">No Ingredients To Show.</p>
-                      )}
+                        ))}
                     </Col>
                     <Col md={6} className="px-2 mb-3">
                       <h4>Method</h4>
