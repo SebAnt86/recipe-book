@@ -134,7 +134,7 @@ function Ingredients({
           ))}
         </ul>
       ) : (
-        <p className="mb-5">No ingredients added.</p>
+        <p className="mb-5">No Ingredients to Show.</p>
       )}
     </>
   );
