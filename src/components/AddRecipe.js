@@ -11,7 +11,7 @@ import { BsClock } from "react-icons/bs";
 import { FaUtensils } from "react-icons/fa";
 import { GiCampCookingPot } from "react-icons/gi";
 
-function AddRecipe({ addRecipe }) {
+function AddRecipe({ addRecipe, setShowAddRecipe }) {
   // validation states
   const [recipeNameValid, setRecipeNameValid] = useState(false);
   const [servesValid, setServesValid] = useState(false);
@@ -77,7 +77,7 @@ function AddRecipe({ addRecipe }) {
       setServesValid(false);
       setRecipeNameValid(false);
       setIngredientsValid(false);
-
+      setShowAddRecipe(false);
     }
   };
 
