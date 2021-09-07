@@ -26,6 +26,8 @@ function AddRecipe({ addRecipe }) {
   const [cookingTime, setCookingTime] = useState("");
   const [servingPpl, setServingPpl] = useState("");
   const [method, setMethod] = useState("");
+  
+  const [servesOrigin, setServesOrigin] = useState("");
 
   const [ingrList, setIngrList] = useState([
     // {
@@ -57,6 +59,7 @@ function AddRecipe({ addRecipe }) {
       setRecipeNameValid(true);
       setIngredientsValid(true);
     } else {
+      setServesOrigin(servingPpl);
       addRecipe({
         recipeName,
         prepTime,
@@ -64,6 +67,7 @@ function AddRecipe({ addRecipe }) {
         serves: servingPpl,
         ingredients: ingrList,
         method,
+        servesOrigin,
       });
 
       //reset form fields
@@ -87,10 +91,10 @@ function AddRecipe({ addRecipe }) {
   };
 
   // Add ingredient
-  const addIngredient = (qty, unit, ingName) => {
+  const addIngredient = (qty, unit, ingName, ingPerServe) => {
     const ingId = Math.floor(Math.random() * 1000) + 1;
     // console.log(id);
-    const newIngredient = { ingId, qty, unit, ingName };
+    const newIngredient = { ingId, qty, unit, ingName, ingPerServe };
     setIngrList([...ingrList, newIngredient]);
   };
 
@@ -203,6 +207,7 @@ function AddRecipe({ addRecipe }) {
         ingrList={ingrList}
         clearIgredients={clearIgredients}
         setClearIngredients={setClearIngredients}
+        servingPpl={servingPpl}
       />
 
       {/* method steps */}

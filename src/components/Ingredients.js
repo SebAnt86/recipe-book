@@ -12,6 +12,7 @@ function Ingredients({
   ingrList,
   clearIgredients,
   setClearIngredients,
+  servingPpl
 }) {
   const [qty, setQty] = useState("");
   const [unit, setUnit] = useState("");
@@ -29,7 +30,8 @@ function Ingredients({
       setQtyValidated(true);
       setIngNameValidated(true);
     } else {
-      addIngredient(qty, unit, ingName);
+      const ingPerServe = (qty / servingPpl);
+      addIngredient(qty, unit, ingName, ingPerServe);
       setClearIngredients(true);
 
       //reset the ingredients values

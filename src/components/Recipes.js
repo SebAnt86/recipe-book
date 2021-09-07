@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 
 import Accordion from "react-bootstrap/Accordion";
 import Container from "react-bootstrap/Container";
@@ -10,20 +10,38 @@ import { ImBin } from "react-icons/im";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { HiOutlineMinusCircle } from "react-icons/hi";
 
+
+
 function Recipes({ recipes, setRecipes, deleteRecipe }) {
-  // const [servesCount, setServesCount] = useState();
 
-  // const increaseServes = (serves) => {
-  //    return serves++;
-  // };
 
-  // const decreaseServes = () => {};
+  const increaseServes = (id) => {
+    const updatedRecipe = recipes.map(recipe => {
+      if(recipe.id === id){
+        return {...recipe, serves: (parseInt(recipe.serves) + 1)}
+      }
+      return recipe;
+    })
+    setRecipes(updatedRecipe);
+  };
+
+ 
+    const decreaseServes = (id) => {
+      const updatedRecipe = recipes.map(recipe => {
+        if(recipe.id === id){
+          return {...recipe, serves: (parseInt(recipe.serves) > 1 ? (parseInt(recipe.serves) - 1) : 1)}
+        }
+        return recipe;
+      })
+      setRecipes(updatedRecipe);
+    };
 
   return (
     <>
       <Container className="mb-3">
-        <Accordion className="mx-1 mb-5">
+        {/* <Accordion className="mx-1 mb-5"> */}
           {recipes.map((recipe) => (
+            <Accordion className="mx-1 mb-5">
             <Accordion.Item eventKey={recipe.id}>
               <Accordion.Header>
                 {recipe.recipeName.toUpperCase()}
@@ -40,7 +58,7 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                   </Col>
                   <Col className="text-center">
                     <Col>Serves</Col>
-                    <Col>{recipe.serves}</Col>
+                    <Col>{recipe.servesOrigin}</Col>
                   </Col>
                 </div>
                 <Row className="mt-4 g-3">
@@ -49,16 +67,16 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                     <Container className="ps-0 mt-4 d-flex justify-content-between">
                       <h6>Number of servings</h6>
                       <div>
-                        <HiOutlineMinusCircle className="btn-operators" />
+                        <HiOutlineMinusCircle className="btn-operators" onClick={() => decreaseServes(recipe.id)}/>
                         <span className="mx-1">{recipe.serves}</span>
-                        <IoMdAddCircleOutline className="btn-operators" />
+                        <IoMdAddCircleOutline className="btn-operators" onClick={() => increaseServes(recipe.id)}/>
                       </div>
                     </Container>
                     {recipe.ingredients.length > 0 ? (
                       recipe.ingredients.map((ingr) => (
                         <Row>
                           <Col>
-                            <span>{ingr.qty}</span>
+                            <span>{ingr.ingPerServe * recipe.serves}</span>
                             <span className="me-2">{ingr.unit}</span>
                             <span className="mx-2">{ingr.ingName}</span>
                           </Col>
@@ -82,8 +100,9 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                 </div>
               </Accordion.Body>
             </Accordion.Item>
+            </Accordion>
           ))}
-        </Accordion>
+        {/* </Accordion> */}
       </Container>
     </>
   );
