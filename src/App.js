@@ -12,93 +12,93 @@ function App() {
   
 
   const [recipes, setRecipes] = useState([
-    // {
-    //   id: 1,
-    //   recipeName: "Lasagna",
-    //   prepTime: "20 mins",
-    //   cookingTime: "30 mins",
-    //   serves: 4,
-    //   ingredients: [
-    //     {
-    //       ingId: 4,
-    //       ingQty: 200,
-    //       unit: "ml",
-    //       ingName: "tomato",
-    //     },
-    //     {
-    //       ingId: 6,
-    //       ingQty: 200,
-    //       unit: "g",
-    //       ingName: "bechamel",
-    //     },
-    //     {
-    //       ingId: 6,
-    //       ingQty: 300,
-    //       unit: "g",
-    //       ingName: "cheese",
-    //     },
-    //   ],
-    //   method:
-    //     "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
-    // },
-    // {
-    //   id: 2,
-    //   recipeName: "Lasagna",
-    //   prepTime: "20 mins",
-    //   cookingTime: "30 mins",
-    //   serves: 4,
-    //   ingredients: [
-    //     {
-    //       ingId: 1,
-    //       ingQty: 200,
-    //       unit: "ml",
-    //       ingName: "tomato",
-    //     },
-    //     {
-    //       ingId: 2,
-    //       ingQty: 200,
-    //       unit: "g",
-    //       ingName: "bechamel",
-    //     },
-    //     {
-    //       ingId: 3,
-    //       ingQty: 300,
-    //       unit: "g",
-    //       ingName: "cheese",
-    //     },
-    //   ],
-    //   method:
-    //     "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
-    // },
-    // {
-    //   id: 3,
-    //   recipeName: "Lasagna",
-    //   prepTime: "20 mins",
-    //   cookingTime: "30 mins",
-    //   serves: 4,
-    //   ingredients: [
-    //     {
-    //       ingId: 7,
-    //       ingQty: 200,
-    //       unit: "ml",
-    //       ingName: "tomato",
-    //     },
-    //     {
-    //       ingId: 8,
-    //       ingQty: 200,
-    //       unit: "g",
-    //       ingName: "bechamel",
-    //     },
-    //     {
-    //       ingId: 9,
-    //       ingQty: 300,
-    //       unit: "g",
-    //       ingName: "cheese",
-    //     },
-    //   ],
-    //   method:
-    //     "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
-    // },
+    {
+      id: 1,
+      recipeName: "Lasagna",
+      prepTime: "20 mins",
+      cookingTime: "30 mins",
+      serves: 4,
+      ingredients: [
+        {
+          ingId: 4,
+          qty: 200,
+          unit: "ml",
+          ingName: "tomato",
+        },
+        {
+          ingId: 6,
+          qty: 200,
+          unit: "g",
+          ingName: "bechamel",
+        },
+        {
+          ingId: 7,
+          qty: 300,
+          unit: "g",
+          ingName: "cheese",
+        },
+      ],
+      method:
+        "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
+    },
+    {
+      id: 2,
+      recipeName: "Spaghetti",
+      prepTime: "20 mins",
+      cookingTime: "30 mins",
+      serves: 4,
+      ingredients: [
+        {
+          ingId: 1,
+          qty: 200,
+          unit: "ml",
+          ingName: "tomato",
+        },
+        {
+          ingId: 2,
+          qty: 200,
+          unit: "g",
+          ingName: "bechamel",
+        },
+        {
+          ingId: 3,
+          qty: 300,
+          unit: "g",
+          ingName: "cheese",
+        },
+      ],
+      method:
+        "Create a layer of the lasagna with tomato ragú, bechamel and cheese until the top of the tray.",
+    },
+    {
+      id: 3,
+      recipeName: "Gnocchi",
+      prepTime: "20 mins",
+      cookingTime: "30 mins",
+      serves: 4,
+      ingredients: [
+        {
+          ingId: 7,
+          qty: 200,
+          unit: "ml",
+          ingName: "tomato",
+        },
+        {
+          ingId: 8,
+          qty: 200,
+          unit: "g",
+          ingName: "bechamel",
+        },
+        {
+          ingId: 9,
+          qty: 300,
+          unit: "g",
+          ingName: "cheese",
+        },
+      ],
+      method:
+        "Create a layer of the lasagna with tomato ragú, bechamel and cheese untul the top of the tray.",
+    },
   ]);
 
 
@@ -122,13 +122,11 @@ function App() {
       <ShowAddForm onAdd={() => setShowAddRecipe(!showAddRecipe)} />
       {showAddRecipe && (
         <AddRecipe
-          // ingredients={ingredients}
-          // deleteIngredient={deleteIngredient}
-          // addIngredient={addIngredient}
+        key={recipes.id}
           addRecipe={addRecipe}
         />
       )}
-      <Recipes recipes={recipes} deleteRecipe={deleteRecipe} key={recipes.id} />
+      <Recipes recipes={recipes} setRecipes={setRecipes} deleteRecipe={deleteRecipe} key={recipes.id} />
     </div>
   );
 }

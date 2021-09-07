@@ -1,11 +1,24 @@
+import { useState } from "react";
+
 import Accordion from "react-bootstrap/Accordion";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+//import Button from "react-bootstrap/Button";
 
 import { ImBin } from "react-icons/im";
+import { IoMdAddCircleOutline } from "react-icons/io";
+import { HiOutlineMinusCircle } from "react-icons/hi";
 
-function Recipes({ recipes, deleteRecipe }) {
+function Recipes({ recipes, setRecipes, deleteRecipe }) {
+  // const [servesCount, setServesCount] = useState();
+
+  // const increaseServes = (serves) => {
+  //    return serves++;
+  // };
+
+  // const decreaseServes = () => {};
+
   return (
     <>
       <Container className="mb-3">
@@ -35,7 +48,11 @@ function Recipes({ recipes, deleteRecipe }) {
                     <h4>Ingredients</h4>
                     <Container className="ps-0 mt-4 d-flex justify-content-between">
                       <h6>Number of servings</h6>
-                      <div>+ 4 -</div>
+                      <div>
+                        <HiOutlineMinusCircle className="btn-operators" />
+                        <span className="mx-1">{recipe.serves}</span>
+                        <IoMdAddCircleOutline className="btn-operators" />
+                      </div>
                     </Container>
                     {recipe.ingredients.length > 0 ? (
                       recipe.ingredients.map((ingr) => (

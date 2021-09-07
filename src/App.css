@@ -28,11 +28,24 @@ body {
 }
 
 .btn-delete {
-  width: 3.5rem;
-  font-size: 2rem;
+  /* width: 3.5rem; */
+  font-size: 2.75rem;
+  border-radius: 10%;
   color: #f70808;
   cursor: pointer;
 }
+
+.btn-delete:hover {
+  border: 2px solid #f70808;
+}
+
+.btn-operators {
+  font-size: 1.7rem;
+  color: #0a652b;
+  cursor: pointer;
+}
+
+
 
 .validation-text {
     font-size: 0.75rem;
