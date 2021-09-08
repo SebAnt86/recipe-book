@@ -18,7 +18,12 @@ body {
 
 .header {
   font-weight: 400;
+  background-color: #cacacbb1;
+  border-radius: 10px;
+  max-width: 375px;
 }
+
+
 
 /* Form style */
 
@@ -36,7 +41,7 @@ body {
   border: 1px solid #ffffff;
   border-radius: 3px;
   line-height: 2.5rem;
-  min-width: 15rem;
+  width: 15rem;
   background-color: #ffffff;
 }
 
@@ -68,4 +73,13 @@ body {
 
 .validation-text {
     font-size: 0.75rem;
+}
+
+
+/* madia quesry */
+@media (max-width: 375px){
+  .mx-5 {
+    margin-left:  10px !important;
+    margin-right:  10px !important;
+  }
 }
