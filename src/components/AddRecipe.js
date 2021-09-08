@@ -213,7 +213,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
           </Form.Floating>
         </Col>
       </Row>
-      <Alert variant="danger" show={showAlert}>
+      <Alert variant="danger" show={showAlert} >
         Please check the required fields!
       </Alert>
       <div className="text-center">

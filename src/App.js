@@ -118,7 +118,7 @@ function App() {
   return (
     <div>
       <Header />
-      <ShowAddForm onAdd={() => setShowAddRecipe(!showAddRecipe)} />
+      <ShowAddForm onAdd={() => setShowAddRecipe(!showAddRecipe)}  showAddRecipe={showAddRecipe}/>
       {showAddRecipe && <AddRecipe key={recipes.id} addRecipe={addRecipe} setShowAddRecipe={setShowAddRecipe}/>}
       <Recipes
         recipes={recipes}
