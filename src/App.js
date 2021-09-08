@@ -100,34 +100,28 @@ function App() {
     // },
   ]);
 
+  // Only run once the first time the component is rendered
   useEffect(() => {
-    const getRecipes = async () => {
-      const recipeFromServer = await fetchRecipes();
-      setRecipes(recipeFromServer);
+    if(localStorage.getItem("recipesData")) {
+        setRecipes(JSON.parse(localStorage.getItem("recipesData")))
     }
-    getRecipes();
   }, []);
 
-  //Fetch recipes from the Json DB
-  const fetchRecipes = async () => {
-    const res = await fetch("http://localhost:5000/recipes");
-    const data = await res.json();
-    return data;
-  }
+  // Run every time our recipe state changes
+  useEffect(() => {
+    localStorage.setItem("recipesData", JSON.stringify(recipes));
+  }, [recipes]);
 
   // Delete recipe
   const deleteRecipe = (id) => {
-    //console.log("delete", id);
     setRecipes(recipes.filter((recipe) => recipe.id !== id));
   };
 
   // Add Recipe
   const addRecipe = (recipe) => {
     const id = Math.floor(Math.random() * 1000) + 1;
-    // console.log(id);
     const newRecipe = { id, ...recipe };
     setRecipes([...recipes, newRecipe]);
-    console.log(recipes);
   };
 
   return (
