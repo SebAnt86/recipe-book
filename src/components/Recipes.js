@@ -37,10 +37,10 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
     <>
       {recipes.length > 0 ? (
         <Container className="mb-3">
-          {/* <Accordion className="mx-1 mb-5"> */}
+          <Accordion className="mx-1 mb-5">
           {recipes.map((recipe) => (
-            <Accordion className="mx-1 mb-5">
-              <Accordion.Item eventKey={recipe.id}>
+            // <Accordion className="mx-1 mb-5" key={recipe.id}>
+              <Accordion.Item eventKey={recipe.id} key={recipe.id}>
                 <Accordion.Header>
                   {recipe.recipeName.toUpperCase()}
                 </Accordion.Header>
@@ -77,7 +77,7 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                         </div>
                       </Container>
                       {recipe.ingredients.map((ingr) => (
-                          <Row>
+                          <Row key={ingr.ingId}>
                             <Col>
                               <span>{ingr.ingPerServe * recipe.serves}</span>
                               <span className="me-2">{ingr.unit}</span>
@@ -102,9 +102,9 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                   </div>
                 </Accordion.Body>
               </Accordion.Item>
-            </Accordion>
+            // </Accordion>
           ))}
-          {/* </Accordion> */}
+          </Accordion>
         </Container>
       ) : (
         <div className="text-center pt-5">

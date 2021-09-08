@@ -121,7 +121,7 @@ function Ingredients({
       {ingrList.length > 0 ? (
         <ul className="d-flex  flex-wrap ps-0">
           {ingrList.map((ingr) => (
-            <li className="ing-item mb-3 d-flex justify-content-between align-items-center px-2 me-2">
+            <li className="ing-item mb-3 d-flex justify-content-between align-items-center px-2 me-2" key={ingr.ingId}>
               <div>
                 <span>{ingr.qty}</span> <span>{ingr.unit}</span>{" "}
                 <span>{ingr.ingName}</span>
