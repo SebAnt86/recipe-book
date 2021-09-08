@@ -83,7 +83,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
   };
 
   return (
-    <Form className="mx-5 mb-5" noValidate onSubmit={onAdd}>
+    <Form className="form-style mx-5 mb-5 p-3" noValidate onSubmit={onAdd}>
       {/* recipe name */}
       <Row className="g-3 mb-3">
         <Col xl={6} className="mb-3">
@@ -102,7 +102,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
             </label>
           </Form.Floating>
           <div>
-            <Form.Label className="m-0 text-secondary validation-text ps-2">
+            <Form.Label className="m-0 validation-text ps-2">
               Required*
             </Form.Label>
           </div>
@@ -167,7 +167,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
             </label>
           </Form.Floating>
           <div>
-            <Form.Label className="m-0 text-secondary validation-text ps-2">
+            <Form.Label className="m-0 validation-text ps-2">
               Required*
             </Form.Label>
           </div>
@@ -217,7 +217,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
         Please check the required fields!
       </Alert>
       <div className="text-center">
-        <Button variant="primary" type="submit" size="lg">
+        <Button variant="success" type="submit" size="lg">
           Save Recipe
         </Button>
       </div>

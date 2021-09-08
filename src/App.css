@@ -9,6 +9,22 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  background-image: url("./images/nordwood-themes.jpg");
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+/* Header style */
+
+.header {
+  font-weight: 400;
+}
+
+/* Form style */
+
+.form-style {
+  background-color: #cacacbe5;
+  border-radius: 10px;
 }
 
 .textarea {
@@ -17,11 +33,14 @@ body {
 
 .ing-item {
   list-style: none;
-  border: 1px solid #cacacb;
+  border: 1px solid #ffffff;
   border-radius: 3px;
   line-height: 2.5rem;
   min-width: 15rem;
+  background-color: #ffffff;
 }
+
+/* BUTTONS style */
 
 .btn-close {
   font-size: 0.75rem;
@@ -45,7 +64,7 @@ body {
   cursor: pointer;
 }
 
-
+/* Validation style */
 
 .validation-text {
     font-size: 0.75rem;

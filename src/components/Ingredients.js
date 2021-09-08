@@ -60,7 +60,7 @@ function Ingredients({
             </label>
           </Form.Floating>
           <div>
-            <Form.Label className="m-0 text-secondary validation-text ps-2">
+            <Form.Label className="m-0 validation-text ps-2">
               Required*
             </Form.Label>
           </div>
@@ -86,7 +86,7 @@ function Ingredients({
             </label>
           </Form.Floating>
           <div>
-            <Form.Label className="m-0 text-secondary validation-text ps-2">
+            <Form.Label className="m-0 validation-text ps-2">
               Required*
             </Form.Label>
           </div>
@@ -114,7 +114,7 @@ function Ingredients({
         </Col>
       </Row>
 
-      <Button variant="primary" size="sm" className="mb-3" onClick={onAdd}>
+      <Button variant="success" size="sm" className="mb-3" onClick={onAdd}>
         Add Ingredient
       </Button>
 
