@@ -44,8 +44,8 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                 <Accordion.Header>
                   {recipe.recipeName.toUpperCase()}
                 </Accordion.Header>
-                <Accordion.Body>
-                  <div className="d-flex justify-content-between mb-3 ">
+                <Accordion.Body className="px-3">
+                  <div className="d-flex justify-content-between mb-3">
                     <Col className="text-center">
                       <Col>Prep</Col>
                       <Col>{recipe.prepTime}</Col>
@@ -60,9 +60,9 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                     </Col>
                   </div>
                   <Row className="mt-4 g-3">
-                    <Col md={6} className="px-2 mb-3">
+                    <Col md={6} className="px-1 mb-3">
                       <h4>Ingredients</h4>
-                      <Container className="ps-0 mt-4 d-flex justify-content-between">
+                      <Container className="px-0 my-4 d-flex justify-content-between">
                         <h6>Number of servings</h6>
                         <div>
                           <HiOutlineMinusCircle
@@ -86,9 +86,9 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                           </Row>
                         ))}
                     </Col>
-                    <Col md={6} className="px-2 mb-3">
+                    <Col md={6} className="px-1 mb-3">
                       <h4>Method</h4>
-                      <Container className="ps-0 mt-4">
+                      <Container className="px-0 mt-4">
                         {recipe.method}
                       </Container>
                     </Col>

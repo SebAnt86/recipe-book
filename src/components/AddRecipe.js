@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Alert from "react-bootstrap/Alert";
 
 import { BsClockHistory } from "react-icons/bs";
 import { BsClock } from "react-icons/bs";
@@ -26,26 +27,9 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
   
   const [servesOrigin, setServesOrigin] = useState("");
 
-  const [ingrList, setIngrList] = useState([
-    // {
-    //         ingId: 4,
-    //         qty: 200,
-    //         unit: "ml",
-    //         ingName: "tomato",
-    //       },
-    //       {
-    //         ingId: 8,
-    //         qty: 200,
-    //         unit: "g",
-    //         ingName: "bechamel",
-    //       },
-    //       {
-    //         ingId: 6,
-    //         qty: 300,
-    //         unit: "g",
-    //         ingName: "cheese",
-    //       },
-  ]);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const [ingrList, setIngrList] = useState([]);
 
   // fanction to add and display the new recipe
   const onAdd = (e) => {
@@ -55,6 +39,8 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
       setServesValid(true);
       setRecipeNameValid(true);
       setIngredientsValid(true);
+      //alert("Please check the required fields!");
+      setShowAlert(true);
     } else {
       setServesOrigin(servingPpl);
       addRecipe({
@@ -78,6 +64,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
       setRecipeNameValid(false);
       setIngredientsValid(false);
       setShowAddRecipe(false);
+      setShowAlert(false);
     }
   };
 
@@ -121,7 +108,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
           </div>
           {recipeNameValid && (
             <Form.Label className="m-0 text-danger validation-text ps-2">
-              Please add a recipe name.
+              Please add the recipe name.
             </Form.Label>
           )}
         </Col>
@@ -196,7 +183,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
       {ingredientsValid && (
         <div className="text-center">
           <Form.Label className="m-0 text-danger">
-            Please add a ingredients.
+            Please add ingredients.
           </Form.Label>
         </div>
       )}
@@ -226,6 +213,9 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
           </Form.Floating>
         </Col>
       </Row>
+      <Alert variant="danger" show={showAlert}>
+        Please check the required fields!
+      </Alert>
       <div className="text-center">
         <Button variant="primary" type="submit" size="lg">
           Save Recipe
