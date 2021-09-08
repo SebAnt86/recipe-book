@@ -5,7 +5,7 @@ import AddRecipe from "./components/AddRecipe";
 import ShowAddForm from "./components/ShowAddForm";
 import Recipes from "./components/Recipes";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [showAddRecipe, setShowAddRecipe] = useState(false);
@@ -100,6 +100,20 @@ function App() {
     // },
   ]);
 
+  useEffect(() => {
+    const getRecipes = async () => {
+      const recipeFromServer = await fetchRecipes();
+      setRecipes(recipeFromServer);
+    }
+    getRecipes();
+  }, []);
+
+  //Fetch recipes from the Json DB
+  const fetchRecipes = async () => {
+    const res = await fetch("http://localhost:5000/recipes");
+    const data = await res.json();
+    return data;
+  }
 
   // Delete recipe
   const deleteRecipe = (id) => {
@@ -113,6 +127,7 @@ function App() {
     // console.log(id);
     const newRecipe = { id, ...recipe };
     setRecipes([...recipes, newRecipe]);
+    console.log(recipes);
   };
 
   return (
