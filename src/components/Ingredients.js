@@ -53,7 +53,7 @@ function Ingredients({
               type="text"
               className="pb-1"
               value={ingName}
-              onChange={(e) => setIngName(e.target.value)}
+              onChange={(e) => setIngName(e.target.value.toLowerCase())}
             />
             <label htmlFor="ing-name" className="pt-2">
               Ing. Name *
@@ -105,7 +105,7 @@ function Ingredients({
               type="text"
               className="pb-1"
               value={unit}
-              onChange={(e) => setUnit(e.target.value)}
+              onChange={(e) => setUnit(e.target.value.toLowerCase())}
             />
             <label htmlFor="ing-name" className="pt-2">
               Ing. Unit
