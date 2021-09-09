@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 * {
   margin: 0;
@@ -17,7 +17,7 @@ body {
 /* Header style */
 
 .header {
-  font-weight: 400;
+  font-weight: 700;
 }
 
 /* Form style */
@@ -70,6 +70,35 @@ body {
 }
 
 
+/* Accordinf style */
+/* .accordion-header {
+  background-color: red !important;
+} */
+
+.accordion-button {
+  color: white !important;
+  font-size: 1.25rem;
+  background-color: #198754 !important;
+  border-color: #13653f !important;
+}
+
+.f-bold {
+  font-weight: 700;
+}
+
+.recipe-sections {
+  background-color: #cacacb6e;
+  border-radius: 10px;
+}
+
+.recipe-ing {
+  border-bottom: 1px solid white;
+}
+
+.recipe-ing-list:last-child {
+  border-bottom: 1px solid #cacacb6e;
+}
+
 /* madia quesry for small screen*/
 @media (max-width: 500px){
   .mx-5 {
@@ -81,5 +110,8 @@ body {
   }
   blockquote {
     font-size: 0.75rem;
+  }
+  .recipe-sections {
+    max-width: 90%;
   }
 }

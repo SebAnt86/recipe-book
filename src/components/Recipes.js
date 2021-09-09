@@ -48,28 +48,28 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                   <div className="d-flex justify-content-between mb-3">
                     <Col className="text-center">
                       <Col>Prep</Col>
-                      <Col>{recipe.prepTime}</Col>
+                      <Col className="f-bold">{recipe.prepTime}</Col>
                     </Col>
                     <Col className="text-center">
                       <Col>Cooking</Col>
-                      <Col>{recipe.cookingTime}</Col>
+                      <Col className="f-bold">{recipe.cookingTime}</Col>
                     </Col>
                     <Col className="text-center">
                       <Col>Serves</Col>
-                      <Col>{recipe.servesOrigin}</Col>
+                      <Col className="f-bold">{recipe.servesOrigin}</Col>
                     </Col>
                   </div>
-                  <Row className="mt-4 g-3">
-                    <Col md={6} className="px-1 mb-3">
-                      <h4>Ingredients</h4>
+                  <Row className="mt-4 justify-content-around">
+                    <Col md={5} className="p-2 mb-3 recipe-sections">
+                      <h4 className="f-bold">Ingredients</h4>
                       <Container className="px-0 my-4 d-flex justify-content-between">
-                        <h6>Number of servings</h6>
+                        <h6 className="f-bold">Number of servings</h6>
                         <div>
                           <HiOutlineMinusCircle
                             className="btn-operators"
                             onClick={() => decreaseServes(recipe.id)}
                           />
-                          <span className="mx-1">{recipe.serves}</span>
+                          <span className="mx-1 f-bold">{recipe.serves}</span>
                           <IoMdAddCircleOutline
                             className="btn-operators"
                             onClick={() => increaseServes(recipe.id)}
@@ -77,8 +77,8 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                         </div>
                       </Container>
                       {recipe.ingredients.map((ingr) => (
-                          <Row key={ingr.ingId}>
-                            <Col>
+                          <Row key={ingr.ingId} className="mx-1 recipe-ing-list">
+                            <Col className="recipe-ing px-1 py-1">
                               <span>{ingr.ingPerServe * recipe.serves}</span>
                               <span className="me-2">{ingr.unit}</span>
                               <span className="mx-2">{ingr.ingName}</span>
@@ -86,8 +86,8 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                           </Row>
                         ))}
                     </Col>
-                    <Col md={6} className="px-1 mb-3">
-                      <h4>Method</h4>
+                    <Col md={5} className="p-2 mb-3 recipe-sections">
+                      <h4 className="f-bold">Method</h4>
                       <Container className="px-0 mt-4">
                         {recipe.method}
                       </Container>
