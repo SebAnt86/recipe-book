@@ -79,7 +79,7 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                       {recipe.ingredients.map((ingr) => (
                           <Row key={ingr.ingId} className="mx-1 recipe-ing-list">
                             <Col className="recipe-ing p-1">
-                              <span>{ingr.ingPerServe * recipe.serves}</span>
+                              <span>{Math.round(((ingr.ingPerServe * recipe.serves) + Number.EPSILON) * 100) / 100}</span>
                               <span className="me-2">{ingr.unit}</span>
                               <span className="mx-2">{ingr.ingName}</span>
                             </Col>
