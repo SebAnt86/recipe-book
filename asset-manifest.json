@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/recipe-book/static/css/main.2c34cbf6.chunk.css",
-    "main.js": "/recipe-book/static/js/main.624392c4.chunk.js",
-    "main.js.map": "/recipe-book/static/js/main.624392c4.chunk.js.map",
+    "main.css": "/recipe-book/static/css/main.4d66da3e.chunk.css",
+    "main.js": "/recipe-book/static/js/main.d30b422e.chunk.js",
+    "main.js.map": "/recipe-book/static/js/main.d30b422e.chunk.js.map",
     "runtime-main.js": "/recipe-book/static/js/runtime-main.ee259273.js",
     "runtime-main.js.map": "/recipe-book/static/js/runtime-main.ee259273.js.map",
     "static/css/2.da1eef19.chunk.css": "/recipe-book/static/css/2.da1eef19.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.bb291d86.chunk.js.map": "/recipe-book/static/js/2.bb291d86.chunk.js.map",
     "index.html": "/recipe-book/index.html",
     "static/css/2.da1eef19.chunk.css.map": "/recipe-book/static/css/2.da1eef19.chunk.css.map",
-    "static/css/main.2c34cbf6.chunk.css.map": "/recipe-book/static/css/main.2c34cbf6.chunk.css.map",
+    "static/css/main.4d66da3e.chunk.css.map": "/recipe-book/static/css/main.4d66da3e.chunk.css.map",
     "static/js/2.bb291d86.chunk.js.LICENSE.txt": "/recipe-book/static/js/2.bb291d86.chunk.js.LICENSE.txt",
     "static/media/App.css": "/recipe-book/static/media/nordwood-themes.ff669bdf.jpg"
   },
@@ -18,7 +18,7 @@
     "static/js/runtime-main.ee259273.js",
     "static/css/2.da1eef19.chunk.css",
     "static/js/2.bb291d86.chunk.js",
-    "static/css/main.2c34cbf6.chunk.css",
-    "static/js/main.624392c4.chunk.js"
+    "static/css/main.4d66da3e.chunk.css",
+    "static/js/main.d30b422e.chunk.js"
   ]
 }
