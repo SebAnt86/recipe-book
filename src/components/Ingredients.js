@@ -6,11 +6,15 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CloseButton from "react-bootstrap/CloseButton";
 
+import { GiKitchenScale, GiFruitBowl } from "react-icons/gi";
+import { BiAbacus } from "react-icons/bi";
+
+
 function Ingredients({
   deleteIngredient,
   addIngredient,
   ingrList,
-  servingPpl
+  servingPpl,
 }) {
   const [qty, setQty] = useState("");
   const [unit, setUnit] = useState("");
@@ -28,7 +32,7 @@ function Ingredients({
       setQtyValidated(true);
       setIngNameValidated(true);
     } else {
-      const ingPerServe = (qty / servingPpl);
+      const ingPerServe = qty / servingPpl;
       addIngredient(qty, unit, ingName, ingPerServe);
 
       //reset the ingredients values
@@ -53,9 +57,10 @@ function Ingredients({
               type="text"
               className="pb-1"
               value={ingName}
-              onChange={(e) => setIngName(e.target.value.toLowerCase())}
+              onChange={(e) => setIngName(e.target.value)}
             />
             <label htmlFor="ing-name" className="pt-2">
+              <GiFruitBowl className="pe-1 pb-1"/>
               Ing. Name *
             </label>
           </Form.Floating>
@@ -82,6 +87,7 @@ function Ingredients({
               onChange={(e) => setQty(e.target.value)}
             />
             <label htmlFor="qty" className="pt-2">
+            <BiAbacus className="pe-1 pb-1"/>
               Ing. Quantity *
             </label>
           </Form.Floating>
@@ -108,6 +114,7 @@ function Ingredients({
               onChange={(e) => setUnit(e.target.value.toLowerCase())}
             />
             <label htmlFor="ing-name" className="pt-2">
+              <GiKitchenScale className="pe-1 pb-1"/>
               Ing. Unit
             </label>
           </Form.Floating>
@@ -115,20 +122,24 @@ function Ingredients({
       </Row>
 
       <Button variant="success" size="sm" className="mb-3" onClick={onAdd}>
-        Add Ingredient
+        ADD INGREDIENT
       </Button>
 
       {ingrList.length > 0 ? (
         <ul className="d-flex  flex-wrap ps-0">
           {ingrList.map((ingr) => (
-            <li className="ing-item mb-3 d-flex justify-content-between align-items-center px-2 me-2" key={ingr.ingId}>
+            <li
+              className="ing-item mb-3 d-flex justify-content-between align-items-center px-2 me-2"
+              key={ingr.ingId}
+            >
               <div>
-                <span>{ingr.qty}</span> <span>{ingr.unit}</span>{" "}
+                <span>{ingr.qty}</span><span>{ingr.unit}</span>{" "}
                 <span>{ingr.ingName}</span>
               </div>
               <CloseButton
                 className="btn-close ms-2 align-self-start align-self-md-center mt-1"
                 onClick={() => deleteIngredient(ingr.ingId)}
+                title="Delete ingredient"
               />
             </li>
           ))}

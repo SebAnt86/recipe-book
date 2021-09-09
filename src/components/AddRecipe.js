@@ -11,6 +11,7 @@ import { BsClockHistory } from "react-icons/bs";
 import { BsClock } from "react-icons/bs";
 import { FaUtensils } from "react-icons/fa";
 import { GiCampCookingPot } from "react-icons/gi";
+import { VscBook } from "react-icons/vsc";
 
 function AddRecipe({ addRecipe, setShowAddRecipe }) {
   // validation states
@@ -98,6 +99,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
               onChange={(e) => setRecipeName(e.target.value)}
             />
             <label htmlFor="recipeName" className="pt-2">
+              <VscBook className="pe-1 pb-1"/>
               Recipe Name *
             </label>
           </Form.Floating>
@@ -167,7 +169,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
             </label>
           </Form.Floating>
           <div>
-            <Form.Label className="m-0 validation-text ps-2">
+            <Form.Label className="m-0 text-secondary validation-text ps-2">
               Required*
             </Form.Label>
           </div>
@@ -218,7 +220,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
       </Alert>
       <div className="text-center">
         <Button variant="success" type="submit" size="lg">
-          Save Recipe
+          SAVE RECIPE
         </Button>
       </div>
     </Form>

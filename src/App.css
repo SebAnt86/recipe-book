@@ -18,12 +18,7 @@ body {
 
 .header {
   font-weight: 400;
-  background-color: #cacacbb1;
-  border-radius: 10px;
-  max-width: 375px;
 }
-
-
 
 /* Form style */
 
@@ -40,8 +35,7 @@ body {
   list-style: none;
   border: 1px solid #ffffff;
   border-radius: 3px;
-  line-height: 2.5rem;
-  width: 15rem;
+  min-width: 15rem;
   background-color: #ffffff;
 }
 
@@ -76,10 +70,16 @@ body {
 }
 
 
-/* madia quesry */
-@media (max-width: 375px){
+/* madia quesry for small screen*/
+@media (max-width: 500px){
   .mx-5 {
     margin-left:  10px !important;
     margin-right:  10px !important;
+  }
+  .ing-item {
+    max-width: 100%;
+  }
+  blockquote {
+    font-size: 0.75rem;
   }
 }
