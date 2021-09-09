@@ -95,9 +95,11 @@ body {
   border-bottom: 1px solid white;
 }
 
-.recipe-ing-list:last-child {
-  border-bottom: 1px solid #cacacb6e;
+.recipe-info {
+  /* font-size: 0.85rem; */
+  line-height: 1.2rem;
 }
+
 
 /* madia quesry for small screen*/
 @media (max-width: 500px){
@@ -112,6 +114,11 @@ body {
     font-size: 0.75rem;
   }
   .recipe-sections {
-    max-width: 90%;
+    /* max-width: 95%; */
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+  }
+  .recipe-info {
+    font-size: 0.85rem;
   }
 }

@@ -37,7 +37,7 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
     <>
       {recipes.length > 0 ? (
         <Container className="mb-3">
-          <Accordion className="mx-1 mb-5">
+          <Accordion className=" mb-5">
           {recipes.map((recipe) => (
             // <Accordion className="mx-1 mb-5" key={recipe.id}>
               <Accordion.Item eventKey={recipe.id} key={recipe.id}>
@@ -46,21 +46,21 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                 </Accordion.Header>
                 <Accordion.Body className="px-3">
                   <div className="d-flex justify-content-between mb-3">
-                    <Col className="text-center">
+                    <Col className="text-center recipe-info">
                       <Col>Prep</Col>
                       <Col className="f-bold">{recipe.prepTime}</Col>
                     </Col>
-                    <Col className="text-center">
+                    <Col className="text-center recipe-info">
                       <Col>Cooking</Col>
                       <Col className="f-bold">{recipe.cookingTime}</Col>
                     </Col>
-                    <Col className="text-center">
+                    <Col className="text-center recipe-info">
                       <Col>Serves</Col>
                       <Col className="f-bold">{recipe.servesOrigin}</Col>
                     </Col>
                   </div>
                   <Row className="mt-4 justify-content-around">
-                    <Col md={5} className="p-2 mb-3 recipe-sections">
+                    <Col md={5} className="p-3 pb-5 mb-3 recipe-sections">
                       <h4 className="f-bold">Ingredients</h4>
                       <Container className="px-0 my-4 d-flex justify-content-between">
                         <h6 className="f-bold">Number of servings</h6>
@@ -78,7 +78,7 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                       </Container>
                       {recipe.ingredients.map((ingr) => (
                           <Row key={ingr.ingId} className="mx-1 recipe-ing-list">
-                            <Col className="recipe-ing px-1 py-1">
+                            <Col className="recipe-ing p-1">
                               <span>{ingr.ingPerServe * recipe.serves}</span>
                               <span className="me-2">{ingr.unit}</span>
                               <span className="mx-2">{ingr.ingName}</span>
@@ -86,7 +86,7 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                           </Row>
                         ))}
                     </Col>
-                    <Col md={5} className="p-2 mb-3 recipe-sections">
+                    <Col md={5} className="p-3 pb-5 mb-3 recipe-sections">
                       <h4 className="f-bold">Method</h4>
                       <Container className="px-0 mt-4">
                         {recipe.method}
