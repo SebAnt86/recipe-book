@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/recipe-book/static/css/main.b46960ef.chunk.css",
-    "main.js": "/recipe-book/static/js/main.d59c9f93.chunk.js",
-    "main.js.map": "/recipe-book/static/js/main.d59c9f93.chunk.js.map",
+    "main.css": "/recipe-book/static/css/main.b78d782c.chunk.css",
+    "main.js": "/recipe-book/static/js/main.4a1ac9cb.chunk.js",
+    "main.js.map": "/recipe-book/static/js/main.4a1ac9cb.chunk.js.map",
     "runtime-main.js": "/recipe-book/static/js/runtime-main.ee259273.js",
     "runtime-main.js.map": "/recipe-book/static/js/runtime-main.ee259273.js.map",
     "static/css/2.da1eef19.chunk.css": "/recipe-book/static/css/2.da1eef19.chunk.css",
-    "static/js/2.bb291d86.chunk.js": "/recipe-book/static/js/2.bb291d86.chunk.js",
-    "static/js/2.bb291d86.chunk.js.map": "/recipe-book/static/js/2.bb291d86.chunk.js.map",
+    "static/js/2.95eb2e8d.chunk.js": "/recipe-book/static/js/2.95eb2e8d.chunk.js",
+    "static/js/2.95eb2e8d.chunk.js.map": "/recipe-book/static/js/2.95eb2e8d.chunk.js.map",
     "index.html": "/recipe-book/index.html",
     "static/css/2.da1eef19.chunk.css.map": "/recipe-book/static/css/2.da1eef19.chunk.css.map",
-    "static/css/main.b46960ef.chunk.css.map": "/recipe-book/static/css/main.b46960ef.chunk.css.map",
-    "static/js/2.bb291d86.chunk.js.LICENSE.txt": "/recipe-book/static/js/2.bb291d86.chunk.js.LICENSE.txt",
+    "static/css/main.b78d782c.chunk.css.map": "/recipe-book/static/css/main.b78d782c.chunk.css.map",
+    "static/js/2.95eb2e8d.chunk.js.LICENSE.txt": "/recipe-book/static/js/2.95eb2e8d.chunk.js.LICENSE.txt",
     "static/media/App.css": "/recipe-book/static/media/nordwood-themes.571e6740.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.ee259273.js",
     "static/css/2.da1eef19.chunk.css",
-    "static/js/2.bb291d86.chunk.js",
-    "static/css/main.b46960ef.chunk.css",
-    "static/js/main.d59c9f93.chunk.js"
+    "static/js/2.95eb2e8d.chunk.js",
+    "static/css/main.b78d782c.chunk.css",
+    "static/js/main.4a1ac9cb.chunk.js"
   ]
 }
