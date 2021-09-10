@@ -1,0 +1,37 @@
+{
+  "recipes": [
+    {
+      "id": 3,
+      "recipeName": "Gnocchi",
+      "prepTime": "20 mins",
+      "cookingTime": "30 mins",
+      "serves": 4,
+      "servesOrigin": 4,
+      "ingredients": [
+        {
+          "ingId": 7,
+          "qty": 200,
+          "unit": "ml",
+          "ingName": "tomato",
+          "ingPerServe": 50
+        },
+        {
+          "ingId": 8,
+          "qty": 200,
+          "unit": "g",
+          "ingName": "bechamel",
+          "ingPerServe": 50
+        },
+        {
+          "ingId": 9,
+          "qty": 300,
+          "unit": "g",
+          "ingName": "cheese",
+          "ingPerServe": 75
+        }
+      ],
+      "method":
+        "Create a layer of the lasagna with tomato ragú, bechamel and cheese until the top of the tray."
+    }
+  ]
+}
