@@ -39,6 +39,13 @@ body {
   background-color: #ffffff;
 }
 
+.main-container{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
 /* BUTTONS style */
 
 .btn-close {
@@ -70,7 +77,7 @@ body {
 }
 
 
-/* Accordinf style */
+/* Accordion style */
 
 .accordion-button {
   color: white !important;
@@ -116,8 +123,23 @@ body {
 }
 
 .recipe-info {
-  /* font-size: 0.85rem; */
   line-height: 1.2rem;
+}
+
+/* Footer style */
+
+.main-footer {
+  background-color: #a4a4a4e2;
+}
+
+.main-footer a {
+  text-decoration: none;
+  color: inherit;
+  display: inline;
+}
+
+.main-footer a:hover {
+  text-decoration: underline;
 }
 
 
@@ -139,6 +161,9 @@ body {
     padding-right: 0.6rem;
   }
   .recipe-info {
+    font-size: 0.85rem;
+  }
+  .main-footer {
     font-size: 0.85rem;
   }
 }
