@@ -103,7 +103,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
               onChange={(e) => setRecipeName(e.target.value)}
             />
             <label htmlFor="recipeName" className="pt-2">
-              <VscBook className="pe-1 pb-1"/>
+              <VscBook className="pe-1 pb-1 form-icons"/>
               Recipe Name *
             </label>
           </Form.Floating>
@@ -130,7 +130,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
               onChange={(e) => setPrepTime(e.target.value)}
             />
             <label htmlFor="prepTime" className="pt-2">
-              <BsClockHistory className="pe-1 pb-1" />
+              <BsClockHistory className="pe-1 pb-1 form-icons" />
               Preparation Time
             </label>
           </Form.Floating>
@@ -147,7 +147,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
               onChange={(e) => setCookingTime(e.target.value)}
             />
             <label htmlFor="cookingTime" className="pt-2">
-              <BsClock className="pe-1 pb-1" />
+              <BsClock className="pe-1 pb-1 form-icons" />
               Cooking Time
             </label>
           </Form.Floating>
@@ -168,7 +168,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
               }}
             />
             <label htmlFor="servingPpl" className="pt-2">
-              <FaUtensils className="pe-1 pb-1" />
+              <FaUtensils className="pe-1 pb-1 form-icons" />
               Serves *
             </label>
           </Form.Floating>
@@ -213,7 +213,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
               onChange={(e) => setMethod(e.target.value)}
             />
             <label htmlFor="method" className="pt-2">
-              <GiCampCookingPot className="pe-1 pb-1" />
+              <GiCampCookingPot className="pe-1 pb-1 form-icons" />
               Method
             </label>
           </Form.Floating>

@@ -60,7 +60,7 @@ function Ingredients({
               onChange={(e) => setIngName(e.target.value)}
             />
             <label htmlFor="ing-name" className="pt-2">
-              <GiFruitBowl className="pe-1 pb-1"/>
+              <GiFruitBowl className="pe-1 pb-1 form-icons"/>
               Ing. Name *
             </label>
           </Form.Floating>
@@ -87,7 +87,7 @@ function Ingredients({
               onChange={(e) => setQty(e.target.value)}
             />
             <label htmlFor="qty" className="pt-2">
-            <BiAbacus className="pe-1 pb-1"/>
+            <BiAbacus className="pe-1 pb-1 form-icons"/>
               Ing. Quantity *
             </label>
           </Form.Floating>
@@ -114,7 +114,7 @@ function Ingredients({
               onChange={(e) => setUnit(e.target.value.toLowerCase())}
             />
             <label htmlFor="ing-name" className="pt-2">
-              <GiKitchenScale className="pe-1 pb-1"/>
+              <GiKitchenScale className="pe-1 pb-1 form-icons"/>
               Ing. Unit
             </label>
           </Form.Floating>
