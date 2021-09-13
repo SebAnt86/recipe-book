@@ -1,4 +1,4 @@
-import Row from "react-bootstrap/Row";
+
 
 function Footer() {
   return (
@@ -8,6 +8,7 @@ function Footer() {
         <a
           href="https://www.linkedin.com/in/antonio-sebastiano/"
           target="_blank"
+          rel="noreferrer"
           className="ms-1 f-bold"
         >
           Antonio Sebastiano

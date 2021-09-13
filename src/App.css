@@ -46,6 +46,9 @@ body {
   justify-content:space-between;
 }
 
+.close-form {
+  font-size: 1rem !important;
+}
 /* BUTTONS style */
 
 .btn-close {

@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/Alert";
+import CloseButton from "react-bootstrap/CloseButton";
 
 import { BsClockHistory } from "react-icons/bs";
 import { BsClock } from "react-icons/bs";
@@ -85,6 +86,9 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
 
   return (
     <Form className="form-style mx-5 mb-5 p-3" noValidate onSubmit={onAdd}>
+      <Row className="flex-row justify-content-end mb-3 me-1">
+        <CloseButton  onClick={() => setShowAddRecipe(false)} className="close-form"/>
+      </Row>
       {/* recipe name */}
       <Row className="g-3 mb-3">
         <Col xl={6} className="mb-3">
