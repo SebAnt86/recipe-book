@@ -96,7 +96,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
             <Form.Control
               id="recipeName"
               type="text"
-              //placeholder="lasagna"
+              // placeholder="lasagna"
               className="pb-1"
               required
               value={recipeName}
@@ -173,7 +173,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
             </label>
           </Form.Floating>
           <div>
-            <Form.Label className="m-0 text-secondary validation-text ps-2">
+            <Form.Label className="m-0 validation-text ps-2">
               Required*
             </Form.Label>
           </div>
