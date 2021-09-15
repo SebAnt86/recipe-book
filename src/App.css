@@ -55,6 +55,11 @@ body {
   width: 1.2em;
   height: 1.2em;
 }
+
+.form-select~label {
+    padding-top: 0.55rem;
+}
+
 /* BUTTONS style */
 
 .btn-close {
@@ -173,7 +178,7 @@ body {
   .main-footer {
     font-size: 0.85rem;
   }
-  body {
+  /* body {
     background-attachment: scroll;
-  }
+  } */
 }

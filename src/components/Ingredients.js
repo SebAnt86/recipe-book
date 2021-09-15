@@ -5,10 +5,10 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CloseButton from "react-bootstrap/CloseButton";
+import FloatingLabel from "react-bootstrap/FloatingLabel"
 
 import { GiKitchenScale, GiFruitBowl } from "react-icons/gi";
 import { BiAbacus } from "react-icons/bi";
-
 
 function Ingredients({
   deleteIngredient,
@@ -17,7 +17,7 @@ function Ingredients({
   servingPpl,
 }) {
   const [qty, setQty] = useState("");
-  const [unit, setUnit] = useState("");
+  const [unit, setUnit] = useState();
   const [ingName, setIngName] = useState("");
 
   //validation states warning messages
@@ -37,12 +37,17 @@ function Ingredients({
 
       //reset the ingredients values
       setQty("");
-      setUnit("");
+      setUnit("Select the ingredient unit");
       setIngName("");
       setQtyValidated(false);
       setIngNameValidated(false);
     }
   };
+
+  const unitLabel = (<label htmlFor="ing-name">
+  <GiKitchenScale className="pe-1 pb-1 form-icons"/>
+  Ing. Unit
+</label>);
 
   return (
     <>
@@ -60,7 +65,7 @@ function Ingredients({
               onChange={(e) => setIngName(e.target.value)}
             />
             <label htmlFor="ing-name" className="pt-2">
-              <GiFruitBowl className="pe-1 pb-1 form-icons"/>
+              <GiFruitBowl className="pe-1 pb-1 form-icons" />
               Ing. Name *
             </label>
           </Form.Floating>
@@ -87,7 +92,7 @@ function Ingredients({
               onChange={(e) => setQty(e.target.value)}
             />
             <label htmlFor="qty" className="pt-2">
-            <BiAbacus className="pe-1 pb-1 form-icons"/>
+              <BiAbacus className="pe-1 pb-1 form-icons" />
               Ing. Quantity *
             </label>
           </Form.Floating>
@@ -105,7 +110,20 @@ function Ingredients({
 
         {/* ingredient unit */}
         <Col sm className="mt-1 mb-3">
-          <Form.Floating>
+          <FloatingLabel controlId="floatingSelect" label={unitLabel}>
+            <Form.Select aria-label="Floating label ingredients unit" value={unit}
+              onChange={(e) => setUnit(e.target.value)}>
+              <option value="">Select the ingredient unit</option>
+              <option value="g">gram</option>
+              <option value="lb">pound</option>
+              <option value="ml">millilitre</option>
+              <option value="cups">cup</option>
+              <option value="tsp">teaspoon</option>
+              <option value="tbs">tablespoon</option>
+              <option value="">unit</option>
+            </Form.Select>
+          </FloatingLabel>
+          {/* <Form.Floating>
             <Form.Control
               id="unit"
               type="text"
@@ -117,7 +135,7 @@ function Ingredients({
               <GiKitchenScale className="pe-1 pb-1 form-icons"/>
               Ing. Unit
             </label>
-          </Form.Floating>
+          </Form.Floating> */}
         </Col>
       </Row>
 
@@ -133,8 +151,8 @@ function Ingredients({
               key={ingr.ingId}
             >
               <div>
-                <span>{ingr.qty}</span><span>{ingr.unit}</span>{" "}
-                <span>{ingr.ingName}</span>
+                <span>{ingr.qty}</span>
+                <span> {ingr.unit}</span> <span>{ingr.ingName}</span>
               </div>
               <CloseButton
                 className="btn-close ms-2 align-self-start align-self-md-center mt-1"

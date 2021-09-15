@@ -33,6 +33,17 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
     setRecipes(updatedRecipe);
   };
 
+  const servesReset = (id) => {
+    const updatedRecipe = recipes.map((recipe) => {
+      if (recipe.id === id) {
+        return { ...recipe, serves: parseInt(recipe.servesOrigin)};
+      }
+      return recipe;
+    });
+    setRecipes(updatedRecipe); 
+
+  };
+
   return (
     <>
       {recipes.length > 0 ? (
@@ -41,7 +52,7 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
           {recipes.map((recipe) => (
             // <Accordion className="mx-1 mb-5" key={recipe.id}>
               <Accordion.Item eventKey={recipe.id} key={recipe.id}>
-                <Accordion.Header>
+                <Accordion.Header onClick={() => servesReset(recipe.id)}>
                   {recipe.recipeName.toUpperCase()}
                 </Accordion.Header>
                 <Accordion.Body className="px-3">
@@ -79,9 +90,9 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                       {recipe.ingredients.map((ingr) => (
                           <Row key={ingr.ingId} className="mx-1 recipe-ing-list">
                             <Col className="recipe-ing p-1">
-                              <span>{Math.round(((ingr.ingPerServe * recipe.serves) + Number.EPSILON) * 100) / 100}</span>
-                              <span className="me-2">{ingr.unit}</span>
-                              <span className="mx-2">{ingr.ingName}</span>
+                              <span>{Math.round((ingr.ingPerServe * recipe.serves) * 10) / 10}</span>
+                              <span className="me-2"> {ingr.unit}</span>
+                              <span className="">{ingr.ingName}</span>
                             </Col>
                           </Row>
                         ))}
