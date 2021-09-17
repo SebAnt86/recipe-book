@@ -1,33 +1,19 @@
-import { useState } from "react";
-import Ingredients from "./Ingredients";
-//import AddRecipe from "./AddRecipe";
+//import { useState } from "react";
+//import Ingredients from "./Ingredients";
+
 
 import Accordion from "react-bootstrap/Accordion";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
+//import Button from "react-bootstrap/Button";
+//import Form from "react-bootstrap/Form";
 
 import { ImBin } from "react-icons/im";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { HiOutlineMinusCircle } from "react-icons/hi";
 
 function Recipes({ recipes, setRecipes, deleteRecipe }) {
-  const [showModal, setShowModal] = useState(false);
-
-  const handleClose = () => setShowModal(false);
-  const handleShow = () => setShowModal(true);
-
-  const [recipeName, setRecipeName] = useState("");
-  const [prepTime, setPrepTime] = useState("");
-  const [cookingTime, setCookingTime] = useState("");
-  const [serves, setServes] = useState("");
-  const [method, setMethod] = useState("");
-
-  const [servesOrigin, setServesOrigin] = useState("");
-  const [ingrList, setIngrList] = useState([]);
 
   const increaseServes = (id) => {
     const updatedRecipe = recipes.map((recipe) => {
@@ -59,27 +45,6 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
       }
       return recipe;
     });
-    setRecipes(updatedRecipe);
-  };
-
-  const updateRecipe = (id) => {
-    const updatedRecipe = recipes.map((recipe) => {
-      if (recipe.id === id) {
-        return {
-          ...recipe,
-          recipeName: !recipeName ? recipe.recipeName : recipeName,
-          method: !method ? recipe.method : method,
-          prepTime: !prepTime ? recipe.prepTime : prepTime,
-          cookingTime: !cookingTime ? recipe.cookingTime : cookingTime,
-          serves: !serves ? recipe.serves : serves,
-          servesOrigin: !servesOrigin ? recipe.servesOrigin : servesOrigin,
-        };
-      }
-      return recipe;
-    });
-
-    console.log(updatedRecipe);
-
     setRecipes(updatedRecipe);
   };
 
@@ -146,108 +111,7 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                       </Container>
                     </Col>
                   </Row>
-                  <div className="d-flex justify-content-between mt-3">
-                    <Button variant="success" onClick={handleShow} size="sm" className="my-1">
-                      EDIT
-                    </Button>
-                    {/* Edit recipe modal starts here */}
-                    <Modal
-                      show={showModal}
-                      onHide={handleClose}
-                      backdrop="static"
-                      keyboard={false}
-                      size="xl"
-                    >
-                      <Modal.Header closeButton>
-                        <Modal.Title>
-                          {" "}
-                          {recipe.recipeName.toUpperCase()}
-                        </Modal.Title>
-                      </Modal.Header>
-                      <Modal.Body>
-                        <Form>
-                          <Row className="mb-3">
-                            <Col xl={6} className="mb-3">
-                              <Form.Group>
-                                <Form.Label>Recipe Name</Form.Label>
-                                <Form.Control
-                                  type="text"
-                                  defaultValue={recipe.recipeName.toUpperCase()}
-                                  onChange={(e) =>
-                                    setRecipeName(e.target.value)
-                                  }
-                                />
-                              </Form.Group>
-                            </Col>
-
-                            <Col xl={2} className="mb-3">
-                              <Form.Group>
-                                <Form.Label>Preparation Time</Form.Label>
-                                <Form.Control
-                                  type="text"
-                                  defaultValue={recipe.prepTime}
-                                  onChange={(e) => setPrepTime(e.target.value)}
-                                />
-                              </Form.Group>
-                            </Col>
-
-                            <Col xl={2} className="mb-3">
-                              <Form.Group>
-                                <Form.Label>Cooking Time</Form.Label>
-                                <Form.Control
-                                  type="text"
-                                  defaultValue={recipe.cookingTime}
-                                  onChange={(e) =>
-                                    setCookingTime(e.target.value)
-                                  }
-                                />
-                              </Form.Group>
-                            </Col>
-
-                            <Col xl={2} className="mb-3">
-                              <Form.Group>
-                                <Form.Label>Serves</Form.Label>
-                                <Form.Control
-                                  type="number"
-                                  defaultValue={recipe.servesOrigin}
-                                  onChange={(e) => {
-                                    setServes(e.target.value);
-                                    setServesOrigin(e.target.value);
-                                  }}
-                                />
-                              </Form.Group>
-                            </Col>
-                          </Row>
-
-                          <Row className="mb-3">
-                            <Col>
-                              <Form.Group>
-                                <Form.Label>Method</Form.Label>
-                                <Form.Control
-                                  as="textarea"
-                                  defaultValue={recipe.method}
-                                  onChange={(e) => setMethod(e.target.value)}
-                                />
-                              </Form.Group>
-                            </Col>
-                          </Row>
-                        </Form>
-                      </Modal.Body>
-                      <Modal.Footer>
-                        <Button
-                          variant="success"
-                          type="submit"
-                          onClick={() => {
-                            updateRecipe(recipe.id);
-                            handleClose();
-                          }}
-                        >
-                          SAVE
-                        </Button>
-                      </Modal.Footer>
-                    </Modal>
-                    {/* Edit recipe modal ends here */}
-
+                  <div className="d-flex justify-content-end mt-3">
                     <ImBin
                       className="btn-delete px-2 py-1"
                       title="Delete recipe"
