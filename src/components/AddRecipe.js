@@ -44,7 +44,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
       //alert("Please check the required fields!");
       setShowAlert(true);
     } else {
-      setServesOrigin(servingPpl);
+      setServesOrigin(parseInt(servingPpl));
       addRecipe({
         recipeName,
         prepTime,
