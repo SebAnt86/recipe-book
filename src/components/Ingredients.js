@@ -120,7 +120,7 @@ function Ingredients({
               <option value="cups">cup</option>
               <option value="tsp">teaspoon</option>
               <option value="tbs">tablespoon</option>
-              <option value="">unit</option>
+              <option value=" ">unit</option>
             </Form.Select>
           </FloatingLabel>
           {/* <Form.Floating>
