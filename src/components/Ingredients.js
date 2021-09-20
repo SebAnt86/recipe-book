@@ -15,6 +15,7 @@ function Ingredients({
   addIngredient,
   ingrList,
   servingPpl,
+  colSize
 }) {
   const [qty, setQty] = useState("");
   const [unit, setUnit] = useState();
@@ -32,7 +33,9 @@ function Ingredients({
       setQtyValidated(true);
       setIngNameValidated(true);
     } else {
-      const ingPerServe = qty / servingPpl;
+      const ingPerServe = (qty / servingPpl);
+      //console.log("servingPpl:", servingPpl);
+      //console.log("ingPerServe:", ingPerServe);
       addIngredient(qty, unit, ingName, ingPerServe);
 
       //reset the ingredients values
@@ -52,10 +55,10 @@ function Ingredients({
   return (
     <>
       <Row className="g-3 mb-1">
-        <Form.Label className="mb-0">Ingredients:</Form.Label>
+        {/* <Form.Label className="mb-0">Ingredients:</Form.Label> */}
 
         {/* ingredient name */}
-        <Col sm className="mt-1 mb-3">
+        <Col sm={colSize} className="mt-1 mb-3">
           <Form.Floating>
             <Form.Control
               id="ing-name"
@@ -82,7 +85,7 @@ function Ingredients({
         </Col>
 
         {/* ingredient qty */}
-        <Col sm className="mt-1 mb-3">
+        <Col sm={colSize} className="mt-1 mb-3">
           <Form.Floating>
             <Form.Control
               id="qty"
@@ -109,7 +112,7 @@ function Ingredients({
         </Col>
 
         {/* ingredient unit */}
-        <Col sm className="mt-1 mb-3">
+        <Col sm={colSize} className="mt-1 mb-3">
           <FloatingLabel controlId="floatingSelect" label={unitLabel}>
             <Form.Select aria-label="Floating label ingredients unit" value={unit}
               onChange={(e) => setUnit(e.target.value)}>

@@ -1,20 +1,27 @@
 //import { useState } from "react";
-//import Ingredients from "./Ingredients";
-
+import Ingredients from "./Ingredients";
 
 import Accordion from "react-bootstrap/Accordion";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-//import Button from "react-bootstrap/Button";
+import Button from "react-bootstrap/Button";
 //import Form from "react-bootstrap/Form";
 
 import { ImBin } from "react-icons/im";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { HiOutlineMinusCircle } from "react-icons/hi";
 
-function Recipes({ recipes, setRecipes, deleteRecipe }) {
-
+function Recipes({
+  recipes,
+  setRecipes,
+  deleteRecipe,
+  ingrList,
+  setIngrList,
+  deleteIngredient,
+  addIngredient,
+  delIngrRecipes,
+}) {
   const increaseServes = (id) => {
     const updatedRecipe = recipes.map((recipe) => {
       if (recipe.id === id) {
@@ -38,6 +45,7 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
     setRecipes(updatedRecipe);
   };
 
+  //reset the rerving number to the origin once the recipe is close
   const servesReset = (id) => {
     const updatedRecipe = recipes.map((recipe) => {
       if (recipe.id === id) {
@@ -46,6 +54,19 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
       return recipe;
     });
     setRecipes(updatedRecipe);
+  };
+
+  //add new ingredient from the recipe
+  const addNewIngredient = (id) => {
+    //console.log(...ingrList);
+    const updatedRecipe = recipes.map((recipe) => {
+      if (recipe.id === id) {
+        return { ...recipe, ingredients: [...recipe.ingredients, ...ingrList] };
+      }
+      return recipe;
+    });
+    setRecipes(updatedRecipe);
+    setIngrList([]);
   };
 
   return (
@@ -91,7 +112,10 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                         </div>
                       </Container>
                       {recipe.ingredients.map((ingr) => (
-                        <Row key={ingr.ingId} className="mx-1 recipe-ing-list">
+                        <Row
+                          key={ingr.ingId}
+                          className="mx-1 recipe-ing-list justify-content-between"
+                        >
                           <Col className="recipe-ing p-1">
                             <span>
                               {Math.round(
@@ -101,9 +125,41 @@ function Recipes({ recipes, setRecipes, deleteRecipe }) {
                             <span className="me-2"> {ingr.unit}</span>
                             <span className="">{ingr.ingName}</span>
                           </Col>
+                          <Col sm={1}>
+                            <ImBin
+                              className="btn-delete px-2 py-1"
+                              title="Delete ingredient"
+                              onClick={() =>
+                                delIngrRecipes(recipe.id, ingr.ingId)
+                              }
+                            />
+                          </Col>
                         </Row>
                       ))}
+
+                      {/* edit ingredient starts here */}
+                      <div className="my-5">
+                        <Ingredients
+                          key={ingrList.ingId}
+                          deleteIngredient={deleteIngredient}
+                          addIngredient={addIngredient}
+                          ingrList={ingrList}
+                          servingPpl={recipe.serves}
+                          colSize="12"
+                        />
+
+                        <Button
+                          variant="success"
+                          size="sm"
+                          className="mb-3"
+                          onClick={() => addNewIngredient(recipe.id)}
+                        >
+                          SAVE INGREDIENT
+                        </Button>
+                      </div>
+                      {/* edit ingredients ends here */}
                     </Col>
+
                     <Col md={5} className="p-3 pb-5 mb-3 recipe-sections">
                       <h4 className="f-bold">Method</h4>
                       <Container className="px-0 mt-4">

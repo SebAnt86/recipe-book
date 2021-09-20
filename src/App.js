@@ -12,6 +12,7 @@ function App() {
   const [showAddRecipe, setShowAddRecipe] = useState(false);
 
   const [recipes, setRecipes] = useState([]);
+  const [ingrList, setIngrList] = useState([]);
 
   // Only run once the first time the component is rendered
   useEffect(() => {
@@ -37,6 +38,34 @@ function App() {
     setRecipes([...recipes, newRecipe]);
   };
 
+  // Delete ingredient from the form
+  const deleteIngredient = (id) => {
+    // console.log("delete", id);
+    setIngrList(ingrList.filter((ingredient) => ingredient.ingId !== id));
+  };
+
+  // Add ingredient
+  const addIngredient = (qty, unit, ingName, ingPerServe) => {
+    const ingId = Math.floor(Math.random() * 1000) + 1;
+    // console.log(id);
+    const newIngredient = { ingId, qty, unit, ingName, ingPerServe };
+    setIngrList([...ingrList, newIngredient]);
+  };
+
+
+  // Delete ingredient from the recipes
+  const delIngrRecipes = (id, ingrId) => {
+    const updatedRecipe = recipes.map((recipe) => {
+      if (recipe.id === id) {
+        return { ...recipe, ingredients: (recipe.ingredients.filter((ingredient) => ingredient.ingId !== ingrId))};
+      }
+      return recipe;
+    });
+    setRecipes(updatedRecipe);
+  };
+
+
+
   return (
     <>
       <Header />
@@ -49,6 +78,10 @@ function App() {
           key={recipes.id}
           addRecipe={addRecipe}
           setShowAddRecipe={setShowAddRecipe}
+          ingrList={ingrList}
+          setIngrList={setIngrList}
+          deleteIngredient={deleteIngredient}
+          addIngredient={addIngredient}
         />
       )}
       <div className="main-container">
@@ -57,6 +90,11 @@ function App() {
           setRecipes={setRecipes}
           deleteRecipe={deleteRecipe}
           key={recipes.id}
+          ingrList={ingrList}
+          setIngrList={setIngrList}
+          deleteIngredient={deleteIngredient}
+          addIngredient={addIngredient}
+          delIngrRecipes={delIngrRecipes}
         />
         <Footer />
       </div>

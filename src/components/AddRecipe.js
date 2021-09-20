@@ -14,7 +14,14 @@ import { FaUtensils } from "react-icons/fa";
 import { GiCampCookingPot } from "react-icons/gi";
 import { VscBook } from "react-icons/vsc";
 
-function AddRecipe({ addRecipe, setShowAddRecipe }) {
+function AddRecipe({
+  addRecipe,
+  setShowAddRecipe,
+  ingrList,
+  setIngrList,
+  deleteIngredient,
+  addIngredient,
+}) {
   // validation states
   const [recipeNameValid, setRecipeNameValid] = useState(false);
   const [servesValid, setServesValid] = useState(false);
@@ -26,18 +33,19 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
   const [cookingTime, setCookingTime] = useState("");
   const [servingPpl, setServingPpl] = useState("");
   const [method, setMethod] = useState("");
-  
+
   const [servesOrigin, setServesOrigin] = useState("");
+  
 
   const [showAlert, setShowAlert] = useState(false);
 
-  const [ingrList, setIngrList] = useState([]);
+  //const [ingrList, setIngrList] = useState([]);
 
   // fanction to add and display the new recipe
   const onAdd = (e) => {
     e.preventDefault();
 
-    if (!recipeName || !servingPpl || (ingrList.length <= 0)) {
+    if (!recipeName || !servingPpl || ingrList.length <= 0) {
       setServesValid(true);
       setRecipeNameValid(true);
       setIngredientsValid(true);
@@ -70,24 +78,27 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
     }
   };
 
-  // Delete ingredient
-  const deleteIngredient = (id) => {
-    // console.log("delete", id);
-    setIngrList(ingrList.filter((ingredient) => ingredient.ingId !== id));
-  };
+  // // Delete ingredient
+  // const deleteIngredient = (id) => {
+  //   // console.log("delete", id);
+  //   setIngrList(ingrList.filter((ingredient) => ingredient.ingId !== id));
+  // };
 
-  // Add ingredient
-  const addIngredient = (qty, unit, ingName, ingPerServe) => {
-    const ingId = Math.floor(Math.random() * 1000) + 1;
-    // console.log(id);
-    const newIngredient = { ingId, qty, unit, ingName, ingPerServe };
-    setIngrList([...ingrList, newIngredient]);
-  };
+  // // Add ingredient
+  // const addIngredient = (qty, unit, ingName, ingPerServe) => {
+  //   const ingId = Math.floor(Math.random() * 1000) + 1;
+  //   // console.log(id);
+  //   const newIngredient = { ingId, qty, unit, ingName, ingPerServe };
+  //   setIngrList([...ingrList, newIngredient]);
+  // };
 
   return (
     <Form className="form-style mx-5 mb-5 p-3" noValidate onSubmit={onAdd}>
       <Row className="flex-row justify-content-end mb-3 me-1">
-        <CloseButton  onClick={() => setShowAddRecipe(false)} className="close-form"/>
+        <CloseButton
+          onClick={() => setShowAddRecipe(false)}
+          className="close-form"
+        />
       </Row>
       {/* recipe name */}
       <Row className="g-3 mb-3">
@@ -103,7 +114,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
               onChange={(e) => setRecipeName(e.target.value)}
             />
             <label htmlFor="recipeName" className="pt-2">
-              <VscBook className="pe-1 pb-1 form-icons"/>
+              <VscBook className="pe-1 pb-1 form-icons" />
               Recipe Name *
             </label>
           </Form.Floating>
@@ -193,12 +204,14 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
           </Form.Label>
         </div>
       )}
+      <Form.Label className="mb-4">Ingredients:</Form.Label>
       <Ingredients
         key={ingrList.ingId}
         deleteIngredient={deleteIngredient}
         addIngredient={addIngredient}
         ingrList={ingrList}
         servingPpl={servingPpl}
+        colSize="4"
       />
 
       {/* method steps */}
@@ -219,7 +232,7 @@ function AddRecipe({ addRecipe, setShowAddRecipe }) {
           </Form.Floating>
         </Col>
       </Row>
-      <Alert variant="danger" show={showAlert} >
+      <Alert variant="danger" show={showAlert}>
         Please check the required fields!
       </Alert>
       <div className="text-center">
