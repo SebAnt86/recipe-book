@@ -54,7 +54,7 @@ function Ingredients({
 
   return (
     <>
-      <Row className="g-3 mb-1">
+      <Row className="g-3 mb-1 pt-4">
         {/* <Form.Label className="mb-0">Ingredients:</Form.Label> */}
 
         {/* ingredient name */}

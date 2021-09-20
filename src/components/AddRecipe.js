@@ -204,7 +204,7 @@ function AddRecipe({
           </Form.Label>
         </div>
       )}
-      <Form.Label className="mb-4">Ingredients:</Form.Label>
+      <Form.Label className="mb-0">Ingredients:</Form.Label>
       <Ingredients
         key={ingrList.ingId}
         deleteIngredient={deleteIngredient}

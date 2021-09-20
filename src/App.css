@@ -139,6 +139,11 @@ body {
   line-height: 1.2rem;
 }
 
+.edit-ingr {
+  background-color: #a4a4a4e2;
+  border-radius: 5px;
+}
+
 /* Footer style */
 
 .main-footer {

@@ -1,4 +1,4 @@
-//import { useState } from "react";
+import { useState } from "react";
 import Ingredients from "./Ingredients";
 
 import Accordion from "react-bootstrap/Accordion";
@@ -7,10 +7,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 //import Form from "react-bootstrap/Form";
+import CloseButton from "react-bootstrap/CloseButton";
 
 import { ImBin } from "react-icons/im";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { HiOutlineMinusCircle } from "react-icons/hi";
+//import { GrEdit } from "react-icons/gr";
 
 function Recipes({
   recipes,
@@ -20,8 +22,9 @@ function Recipes({
   setIngrList,
   deleteIngredient,
   addIngredient,
-  delIngrRecipes,
 }) {
+  const [showEditIngr, setShowEditIngr] = useState(false);
+
   const increaseServes = (id) => {
     const updatedRecipe = recipes.map((recipe) => {
       if (recipe.id === id) {
@@ -45,7 +48,7 @@ function Recipes({
     setRecipes(updatedRecipe);
   };
 
-  //reset the rerving number to the origin once the recipe is close
+  //reset the rerving number to the origin and close the edit form once the recipe is close
   const servesReset = (id) => {
     const updatedRecipe = recipes.map((recipe) => {
       if (recipe.id === id) {
@@ -54,11 +57,27 @@ function Recipes({
       return recipe;
     });
     setRecipes(updatedRecipe);
+    setShowEditIngr(false);
+  };
+
+  // Delete ingredient from the recipes
+  const delIngrRecipes = (id, ingrId) => {
+    const updatedRecipe = recipes.map((recipe) => {
+      if (recipe.id === id) {
+        return {
+          ...recipe,
+          ingredients: recipe.ingredients.filter(
+            (ingredient) => ingredient.ingId !== ingrId
+          ),
+        };
+      }
+      return recipe;
+    });
+    setRecipes(updatedRecipe);
   };
 
   //add new ingredient from the recipe
   const addNewIngredient = (id) => {
-    //console.log(...ingrList);
     const updatedRecipe = recipes.map((recipe) => {
       if (recipe.id === id) {
         return { ...recipe, ingredients: [...recipe.ingredients, ...ingrList] };
@@ -67,6 +86,7 @@ function Recipes({
     });
     setRecipes(updatedRecipe);
     setIngrList([]);
+    setShowEditIngr(false);
   };
 
   return (
@@ -94,8 +114,9 @@ function Recipes({
                       <Col className="f-bold">{recipe.servesOrigin}</Col>
                     </Col>
                   </div>
+
                   <Row className="mt-4 justify-content-around">
-                    <Col md={5} className="p-3 pb-5 mb-3 recipe-sections">
+                    <Col md={5} className="p-3 pb-3 mb-3 recipe-sections">
                       <h4 className="f-bold">Ingredients</h4>
                       <Container className="px-0 my-4 d-flex justify-content-between">
                         <h6 className="f-bold">Number of servings</h6>
@@ -137,27 +158,48 @@ function Recipes({
                         </Row>
                       ))}
 
-                      {/* edit ingredient starts here */}
-                      <div className="my-5">
-                        <Ingredients
-                          key={ingrList.ingId}
-                          deleteIngredient={deleteIngredient}
-                          addIngredient={addIngredient}
-                          ingrList={ingrList}
-                          servingPpl={recipe.serves}
-                          colSize="12"
-                        />
-
-                        <Button
-                          variant="success"
-                          size="sm"
-                          className="mb-3"
-                          onClick={() => addNewIngredient(recipe.id)}
-                        >
-                          SAVE INGREDIENT
-                        </Button>
-                      </div>
-                      {/* edit ingredients ends here */}
+                      {!showEditIngr && (
+                        <div className="text-center">
+                          <Button
+                            variant="success"
+                            size="sm"
+                            className="mt-5"
+                            onClick={() => setShowEditIngr(true)}
+                          >
+                            ADD MORE INGREDIENT
+                          </Button>
+                        </div>
+                      )}
+                      {showEditIngr && (
+                        // {/* edit ingredient starts here */}
+                        <div className="edit-ingr mt-5 px-2">
+                          <Row className="flex-row justify-content-end my-3 me-1 pt-2">
+                            <CloseButton
+                              onClick={() =>  setShowEditIngr(false)}
+                              className="close-form"
+                            />
+                          </Row>
+                          <Ingredients
+                            key={ingrList.ingId}
+                            deleteIngredient={deleteIngredient}
+                            addIngredient={addIngredient}
+                            ingrList={ingrList}
+                            servingPpl={recipe.serves}
+                            colSize="12"
+                          />
+                          <div className="text-center">
+                            <Button
+                              variant="success"
+                              //size="sm"
+                              className="mb-3"
+                              onClick={() => addNewIngredient(recipe.id)}
+                            >
+                              SAVE INGREDIENT
+                            </Button>
+                          </div>
+                        </div>
+                        // {/* edit ingredients ends here */}
+                      )}
                     </Col>
 
                     <Col md={5} className="p-3 pb-5 mb-3 recipe-sections">

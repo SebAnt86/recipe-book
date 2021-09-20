@@ -53,16 +53,7 @@ function App() {
   };
 
 
-  // Delete ingredient from the recipes
-  const delIngrRecipes = (id, ingrId) => {
-    const updatedRecipe = recipes.map((recipe) => {
-      if (recipe.id === id) {
-        return { ...recipe, ingredients: (recipe.ingredients.filter((ingredient) => ingredient.ingId !== ingrId))};
-      }
-      return recipe;
-    });
-    setRecipes(updatedRecipe);
-  };
+  
 
 
 
@@ -94,7 +85,6 @@ function App() {
           setIngrList={setIngrList}
           deleteIngredient={deleteIngredient}
           addIngredient={addIngredient}
-          delIngrRecipes={delIngrRecipes}
         />
         <Footer />
       </div>
