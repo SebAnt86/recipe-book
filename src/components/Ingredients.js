@@ -119,8 +119,10 @@ function Ingredients({
               onChange={(e) => setUnit(e.target.value)}>
               <option value="">Select the ingredient unit</option>
               <option value="g">gram</option>
+              <option value="kg">kilogram</option>
               <option value="lb">pound</option>
               <option value="ml">millilitre</option>
+              <option value="l">litre</option>
               <option value="cups">cup</option>
               <option value="tsp">teaspoon</option>
               <option value="tbs">tablespoon</option>
