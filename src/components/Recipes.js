@@ -137,7 +137,7 @@ function Recipes({
                           key={ingr.ingId}
                           className="mx-1 recipe-ing-list justify-content-between"
                         >
-                          <Col className="recipe-ing p-1 d-flex justify-content-between">
+                          <Col className="recipe-ing p-1 pt-2 d-flex justify-content-between">
                             <div>
                               <span>
                                 {Math.round(

@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import CloseButton from "react-bootstrap/CloseButton";
+//import CloseButton from "react-bootstrap/CloseButton";
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 
 import { GiKitchenScale, GiFruitBowl } from "react-icons/gi";
