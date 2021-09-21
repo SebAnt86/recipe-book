@@ -187,7 +187,7 @@ function Recipes({
                             deleteIngredient={deleteIngredient}
                             addIngredient={addIngredient}
                             ingrList={ingrList}
-                            servingPpl={recipe.serves}
+                            servingPpl={recipe.servesOrigin}
                             colSize="12"
                           />
                           <div className="text-center">
