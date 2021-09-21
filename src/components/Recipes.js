@@ -116,7 +116,7 @@ function Recipes({
                   </div>
 
                   <Row className="mt-4 justify-content-around">
-                    <Col md={5} className="p-3 pb-3 mb-3 recipe-sections">
+                    <Col md={5} className="p-2 pb-3 mb-3 recipe-sections">
                       <h4 className="f-bold">Ingredients</h4>
                       <Container className="px-0 my-4 d-flex justify-content-between">
                         <h6 className="f-bold">Number of servings</h6>
@@ -137,24 +137,27 @@ function Recipes({
                           key={ingr.ingId}
                           className="mx-1 recipe-ing-list justify-content-between"
                         >
-                          <Col className="recipe-ing p-1">
-                            <span>
-                              {Math.round(
-                                ingr.ingPerServe * recipe.serves * 10
-                              ) / 10}
-                            </span>
-                            <span className="me-2"> {ingr.unit}</span>
-                            <span className="">{ingr.ingName}</span>
-                          </Col>
-                          <Col sm={1}>
+                          <Col className="recipe-ing p-1 d-flex justify-content-between">
+                            <div>
+                              <span>
+                                {Math.round(
+                                  ingr.ingPerServe * recipe.serves * 10
+                                ) / 10}
+                              </span>
+                              <span className="me-2"> {ingr.unit}</span>
+                              <span className="">{ingr.ingName}</span>
+                            </div>
+                        
+                         {/* button delete ingredient from recipe */}
                             <ImBin
-                              className="btn-delete px-2 py-1"
+                              className="btn-delete-ingr align-self-end py-1 "
                               title="Delete ingredient"
                               onClick={() =>
                                 delIngrRecipes(recipe.id, ingr.ingId)
                               }
                             />
                           </Col>
+
                         </Row>
                       ))}
 
@@ -175,7 +178,7 @@ function Recipes({
                         <div className="edit-ingr mt-5 px-2">
                           <Row className="flex-row justify-content-end my-3 me-1 pt-2">
                             <CloseButton
-                              onClick={() =>  setShowEditIngr(false)}
+                              onClick={() => setShowEditIngr(false)}
                               className="close-form"
                             />
                           </Row>
@@ -194,7 +197,7 @@ function Recipes({
                               className="mb-3"
                               onClick={() => addNewIngredient(recipe.id)}
                             >
-                              SAVE INGREDIENT
+                              SAVE
                             </Button>
                           </div>
                         </div>
@@ -211,7 +214,7 @@ function Recipes({
                   </Row>
                   <div className="d-flex justify-content-end mt-3">
                     <ImBin
-                      className="btn-delete px-2 py-1"
+                      className="btn-delete-recipe px-2 py-1"
                       title="Delete recipe"
                       onClick={() => deleteRecipe(recipe.id)}
                     />

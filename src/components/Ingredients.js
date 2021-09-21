@@ -9,6 +9,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel"
 
 import { GiKitchenScale, GiFruitBowl } from "react-icons/gi";
 import { BiAbacus } from "react-icons/bi";
+import { ImBin } from "react-icons/im";
 
 function Ingredients({
   deleteIngredient,
@@ -150,15 +151,15 @@ function Ingredients({
         <ul className="d-flex  flex-wrap ps-0">
           {ingrList.map((ingr) => (
             <li
-              className="ing-item mb-3 d-flex justify-content-between align-items-center px-2 me-2"
+              className="ing-item mb-3 d-flex justify-content-between align-items-center ps-2 me-1"
               key={ingr.ingId}
             >
-              <div>
+              <div className="ingr-display-list">
                 <span>{ingr.qty}</span>
                 <span> {ingr.unit}</span> <span>{ingr.ingName}</span>
               </div>
-              <CloseButton
-                className="btn-close ms-2 align-self-start align-self-md-center mt-1"
+              <ImBin
+                className="btn-delete-ingr align-self-end mb-1 p-1 ms-2"
                 onClick={() => deleteIngredient(ingr.ingId)}
                 title="Delete ingredient"
               />

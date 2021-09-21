@@ -66,7 +66,7 @@ body {
   font-size: 0.75rem;
 }
 
-.btn-delete {
+.btn-delete-recipe {
   /* width: 3.5rem; */
   font-size: 2.75rem;
   border-radius: 10%;
@@ -74,8 +74,18 @@ body {
   cursor: pointer;
 }
 
-.btn-delete:hover {
+.btn-delete-recipe:hover {
   border: 2px solid #f70808;
+}
+
+.btn-delete-ingr {
+  font-size: 1.8rem;
+  cursor: pointer;
+  min-width: 1.8rem;
+}
+
+.btn-delete-ingr:hover{
+  color: #00000098;
 }
 
 .btn-operators {
@@ -144,6 +154,10 @@ body {
   border-radius: 5px;
 }
 
+.ingr-display-list {
+  overflow: auto;
+}
+
 /* Footer style */
 
 .main-footer {
@@ -165,9 +179,6 @@ body {
   .mx-5 {
     margin-left: 10px !important;
     margin-right: 10px !important;
-  }
-  .ing-item {
-    max-width: 100%;
   }
   blockquote {
     font-size: 0.75rem;
